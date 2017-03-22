@@ -1,0 +1,104 @@
+body{
+	background-color: #f7f7f7;
+}
+.logo{
+	background-image: url("img/logo_112x36.png");
+	width: 112px;
+	height: 36px;
+	margin: 20px auto 25px;
+}
+.CPrincipal{
+	position: relative;
+}
+
+.CCabezera{
+	height: 83px;
+	border: 0px;
+	overflow: hidden;
+}
+
+.banner{
+	text-align: center;
+	font-family: Arial, sans-serif;
+	color: #404040;
+	font-size: 14px;
+}
+
+.FormLogin{
+	width: 279px;
+	padding: 20px 40px;
+	margin-bottom: 20px;
+	background-color: #f7f7f7;
+	margin: 0px auto 25px;
+}
+
+.link{
+	font-size: 12px;
+	text-align: center;
+}
+
+.user_img{
+	width: 96px;
+	height: 96px;
+	margin: 0px 50px 10px;
+	border-radius: 50%;
+
+}
+.username{
+	font-size:16px;
+	font-weight: bold;
+	text-align: center;
+	margin: 10px 0 0;
+	min-height: 1em;
+	font-family: Arial, sans-serif;
+	color: #404040;
+}
+
+.HLista li{
+	display: inline;
+	margin: 0px 5px 0px 5px;
+	padding: 0px 5px 0px 5px;
+	color: #737373;
+}
+
+.HLista{
+	margin: 0px 5px 0px 5px;
+	padding: 5px 5px 9px 5px;
+}
+
+.CPieBarra{
+	position:absolute;
+    bottom:0px;
+    width: 100%;
+   	display: block;
+	font-size: .85em;
+	background-color: white;
+	border: 1px;
+	border-color: #737373;
+}
+
+.btn-primary{
+	margin-top: 5px;
+	width: 200px;
+}
+p{
+	text-align: center;
+	margin-top: 5px;
+}
+
+input{
+	margin-top: 5px;
+}
+
+div{
+	display: block;
+}
+
+h2{
+	font font-weight: normal;
+	font-size: 18px;
+}
+
+body{
+	height: 100%;
+}

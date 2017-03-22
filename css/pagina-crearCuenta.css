@@ -1,0 +1,40 @@
+#encabezado{
+	background-color: #F1F1F1;
+	height: 70px;
+	border-bottom: 2px solid #E5E5E5;
+}
+
+#img-1{
+	float: left;
+	margin:10px 15px;
+	width: 100px;
+}
+
+#btn-1{
+	float: right;
+	margin:15px 15px;
+}	
+
+#titulo{
+	margin-top: 60px;
+	text-align: center;
+
+}
+
+.formularioCss{
+	width: 370px;
+	background-color: #F1F1F1;
+	float: right;
+	
+
+}
+a{
+	padding: 0px;
+	margin: 0px;
+
+}
+
+.btn-2{
+	float: right;
+	margin-top: 10px;
+}

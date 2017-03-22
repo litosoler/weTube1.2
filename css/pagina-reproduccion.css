@@ -1,0 +1,50 @@
+
+.cuerpo{
+	background-color: white;
+	border-right:25px solid #F1F1F1;
+	border-left: 0px solid #F1F1F1;
+	border-top: 12px solid #F1F1F1;
+	border-bottom:12px solid #F1F1F1;
+
+
+}
+.cuerpo-interno1{
+	width: 880px;
+	float: left;
+	padding: 15px 7.5px 25px 40px;
+
+	
+}
+.cuerpo-interno2{
+	float: left;
+	width: 440px;
+	padding: 15px 40px 25px 7.5px;
+}
+
+.info-cuerpo2{
+	
+	background-color: white;
+}
+
+
+#video-principal{
+	margin-bottom: 10px;
+}
+
+#opciones-video{
+	height: 170px;
+	background-color: white;
+	margin-bottom: 10px;
+}
+#info-video{
+	height: 100px;
+	background-color: white;
+	margin-bottom: 10px;
+}
+#comentarios-video{
+	background-color: white;
+	margin-bottom: 10px;
+}
+}
+
+	

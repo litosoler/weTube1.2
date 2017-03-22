@@ -1,0 +1,78 @@
+body{
+	background-color: #F1F1F1 ;
+	margin: 0px;
+	padding: 0px;
+}
+
+.logo-youtube{
+	height: 35px;
+}
+
+.barra-superior{
+	background-color: white;
+	border-bottom: 1px solid #F1F1F1 ;
+	height: 60px;
+	padding: 15px 5px 3px 20px;
+}
+
+#logo-sm{
+	width: 35px;
+}
+
+#icono-menu{
+	color: grey;
+}
+
+#icono-menu:hover{
+	color: black;
+}
+
+
+.barra-inferior{
+	position: absolute;
+	bottom: 0px;
+	background-color: white;
+	width: 100%;
+}
+
+.HLista{
+	float: clear;
+	margin: 0px 5px 5px 0px;
+	padding: 0px 5px 3px 0px;
+}
+.HLista li{
+	display: inline;
+	margin: 0px 5px 0px 5px;
+	padding: 0px 5px 0px 5px;
+}
+
+.HLista hr{
+	padding: 5px;
+	margin: 0px
+	}
+
+.HLista2{
+	float: clear;
+	margin: 0px 5px 5px 0px;
+	padding: 0px 5px 0px 0px;
+}
+.HLista2 li{
+	font-size: 12px;
+	font-weight: bold;
+	display: inline;
+	margin: 0px 5px 0px 5px;
+	padding: 0px 5px 0px 5px;
+	color: #474545;
+}
+.HLista3{
+	float: clear;
+	margin: 0px 5px 5px 0px;
+	padding: 0px 5px 3px 0px;
+}
+.HLista3 li{
+	font-size: 11px;
+	display: inline;
+	margin: 0px 5px 0px 5px;
+	padding: 0px 5px 0px 5px;
+	color: #737373;
+}
