@@ -18,10 +18,29 @@
 		    <div class="container-fluid barra-superior">
 			    <div class="row">
 			        <div class=" col-xs-4 col-sm-2 col-md-2">
-				        
-		    			<a id="icono-menu"> <span class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown"></span></a>
-			          	<img class="hidden-sm hidden-xs logo-youtube " src="img/logo-youtube.png" >
-			          	<img id="logo-sm" class="hidden-md hidden-lg" src="img/logo-reproduccion.png">            
+				        <span class="dropdown">
+		    			<span id="icono-menu" class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown"></span>
+		    			<ul class="dropdown-menu">
+					      <li><a href="#">Inicio</a></li>
+					      <li><a href="#">Tendencias</a></li>
+					      <li><a href="#">Historial</a></li>
+					      <li class="divider"></li>
+					      <li class="dropdown-header">LO MEJOR DE YOUTUBE</li>
+					      <li><a href="#">Música</a></li>
+					      <li><a href="#">Deportes</a></li>
+					      <li><a href="#">Juegos</a></li>
+					      <li><a href="#">Noticias</a></li>
+					      <li><a href="#">En Directo</a></li>
+					      <li><a href="#">Video en 360°</a></li>
+					      <li class="divider"></li>
+					      <li><a href="#">Explorar Canales</a></li>
+					      <li class="divider"></li>
+					      <li class="dropdown-header">Inicia sesión para ver tus canales y recomendaciones.</li>
+					      <li><a class="btn btn-primary btn-sm">Iniciar Sesión</a></li>
+					    </ul>
+					    </span>
+			          	<a href="Inicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="img/logo-youtube.png"></a>
+			          	<a href="Inicio.php"><img id="logo-sm" class="hidden-md hidden-lg" src="img/logo-reproduccion.png"></a>         
 			        </div>
 			        <div class="col-xs-6 col-sm-7 col-md-7">
 			          	<div class="input-group ">
@@ -44,19 +63,11 @@
 	    	<div class="barra2">
 	    	</div>	
 	    </div>
-    	<div class="container-fluid">
-    	<h1>jpñdsaf</h1>
-    	<h1>jpñdsaf</h1>
-    	<h1>jpñdsaf</h1>
-    	<h1>jpñdsaf</h1>
-    	<h1>jpñdsaf</h1>
-    	<h1>jpñdsaf</h1>
-    	<h1>jpñdsaf</h1>
-    	<h1>jpñdsaf</h1>
-    	<h1>jpñdsaf</h1>
-    	<h1>jpñdsaf</h1>
-    	<h1>jpñdsaf</h1>
-    	<h1>jpñdsaf</h1>
+	    <!-- cuerpo -->
+    	<div class="container cuerpo">
+    		<div class="row">
+    		
+    		</div>
     	</div>
 	
  		<!-- pie de pagina -->
