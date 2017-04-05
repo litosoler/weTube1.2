@@ -1,22 +1,57 @@
-body{
-	background-color: #F1F1F1 ;
+
+
+
+.barra2 a{
 	margin: 0px;
 	padding: 0px;
+	 
+}
+
+.barra2{
+	height: 35px;
+	background-color: white;
+	width: 100%; 
+}
+
+body {
+  background-color: #F1F1F1;
+  position: relative;
+  margin: 0;
+  padding-bottom: 6rem;
+  min-height: 100%;
+}
+
+.reiniciar{
+	padding: 0px;
+	margin: 0px;
 }
 
 .logo-youtube{
 	height: 35px;
 }
 
+
 .barra-superior{
 	background-color: white;
 	border-bottom: 1px solid #F1F1F1 ;
 	height: 60px;
-	padding: 15px 5px 3px 20px;
+	padding: 15px 5px 3px 10px;
 }
 
+.etiquetas{
+	background-color: white;
+}
+.barra-inferior{
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+  left: 0;
+  padding: 1rem;
+  background-color: white;
+
+}
 #logo-sm{
-	width: 35px;
+	width: 30px;
 }
 
 #icono-menu{
@@ -27,13 +62,6 @@ body{
 	color: black;
 }
 
-
-.barra-inferior{
-	position: absolute;
-	bottom: 0px;
-	background-color: white;
-	width: 100%;
-}
 
 .HLista{
 	float: clear;
@@ -76,3 +104,4 @@ body{
 	padding: 0px 5px 0px 5px;
 	color: #737373;
 }
+

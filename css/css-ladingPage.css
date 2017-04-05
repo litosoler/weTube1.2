@@ -1,0 +1,29 @@
+
+#logo-youTube{
+	width: 70px;
+	margin-top: 8px;
+}
+
+.menu{
+	margin-top: 8px;
+	color: black;
+}
+
+.activo{
+	color: #CD1413;
+}
+
+.botones{
+	float: right;
+	margin: 8px
+}
+.encabezado{
+	background-color: #F1F1F1;
+	height: 60px;
+}
+
+.jumbotron{
+	background:  #E16D6C;
+	text-align: center;
+	color: black;
+}
