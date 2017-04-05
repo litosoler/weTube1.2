@@ -1,1 +1,8 @@
-$(".menu").height($(window).height() - $(".barra2").height() - $(".barra-superior").height() );
+$("#icono-subirVideo").hover(
+	function(){
+		$("#icono-subirVideo").attr("src","img/icono-subirVideo2.png");
+	},
+	function(){
+		$("#icono-subirVideo").attr("src","img/icono-subirVideo.png");		
+	}
+);
