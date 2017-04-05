@@ -1,0 +1,66 @@
+.segmentoBody{
+	background-color: white;
+	margin-top: 5px;
+	padding: 10px;
+}
+
+#subirVideo{
+	height: 370px;
+	text-align: center;
+	padding:auto; 
+}
+#subirVideo img{
+	margin-top: 70px
+}
+#subirVideo img:hover{
+	background-color: red;
+}
+#ayuda{
+	height: 130px;
+}
+#ayuda span{
+	font-size: 10px;
+}
+#ayuda ul{
+	list-style-type: none;
+	margin:0;
+	padding: 0;
+	overflow: hidden;
+	background-color: white;
+	font-size: 11px;
+}
+
+#ayuda ul li{
+	float: left;
+}
+#ayuda ul li a{
+	display: block;
+	color: black;
+	text-align: center;
+	padding : 10px 5px;
+	text-decoration: none;
+	border-left: 1px solid grey;
+	border-height: 2px;
+}
+#ayuda ul li a:hover{
+	text-decoration: underline; 
+}
+
+#importar{
+	height: 138px;
+}
+#emision{
+	height: 138px;
+}
+#crear{
+	height: 216px;
+}
+.container{
+	background-color: #F1F1F1;
+}
+.float-left{
+	float: left;;
+}
+.quitar-borde{
+	border-left: 0px !important;
+}
