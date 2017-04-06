@@ -1,0 +1,70 @@
+#nav{
+	height: 220px;
+	background-color: white;
+}
+#nav p{
+	padding-top: 15px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 12px;
+}
+#nav ul{
+	list-style-type: none;
+	margin:0;
+	padding: 0;
+	overflow: hidden;
+	background-color: white;
+	font-size: 11px;
+}
+
+#nav ul li a{
+	display: block;
+	color: black;
+	text-align: center;
+	padding : 10px 5px;
+	text-decoration: none;
+	border-left: 1px solid grey;
+	border-height: 2px;
+}
+#nav ul li a:hover{
+	text-decoration: #F1F1F1; 
+}
+
+.activo{
+	background-color: #CC181E;
+}
+
+#informacion{
+	height:500px;
+	background-color: white;
+}
+#informacion-hd{
+	margin: 18px;
+	margin-bottom: 2px;
+}
+#informacion-hd button{
+	float: right;
+}
+
+#informacion-hd span{
+	text-align: left;
+	font-weight: bold;
+	font-size: 17px;
+}
+#informacion-hd{
+	padding-top: 15px;
+	margin-left: 15px;
+}
+.container{
+	background-color: #F1F1F1;
+}
+h4{
+	font-weight: bold;
+}
+
+.oculto{
+	display: none;
+}
+.formulario{
+	margin: 50px;
+}
