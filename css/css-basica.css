@@ -115,3 +115,10 @@ body {
 	color: #737373;
 }
 
+/*apartir de aqui solo estan las clases que pertenecen a usuarios registrados*/
+.alertas{
+	margin-right: 50px;
+}
+.margin{
+	margin: 15px;
+}
