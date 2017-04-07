@@ -1,0 +1,19 @@
+.container{
+	background-color: #F1F1F1;
+}
+#lista-videos{
+	background-color: white;
+	padding: 15px;
+}
+#info-video{
+	height: 160px;
+}
+#opciones-video{
+	height: 130px;
+}
+#info-publicacion{
+	height: 100px;
+}
+#comentarios{
+	height: 260px;
+}
