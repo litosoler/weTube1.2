@@ -10,6 +10,7 @@
 	    <!-- Bootstrap -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="css/css-basica.css">
+	    <link rel="stylesheet" type="text/css" href="css/css-reproducirVideo.css">
 	    
 	    
   </head>
@@ -64,9 +65,43 @@
 	    	</div>	
 	    </div>
 	    <!-- cuerpo -->
-    	<div class="container cuerpo">
+    	<div class="container">
     		<div class="row">
-    		
+    			<div class="col-md-9">
+    				<div>
+    					<iframe width="100%" height="480" src="https://www.youtube.com/embed/47fwjM1XKhA" frameborder="0" allowfullscreen></iframe>
+    				</div>
+    				<div id="info-video" class="seccion">
+    					
+    				</div>
+    				<div id="opciones-video" class="seccion">
+    					
+    				</div>
+    				<div id="info-publicacion" class="seccion">
+    					
+    				</div>
+    				<div id="comentarios" >
+    					
+    				</div>
+    			</div>
+    			<div class="col-md-3">
+    				<div id="lista-videos">
+    				<?php
+    					for ($i=1; $i <= 4; $i++) { 
+    						echo "<div class='col-md-12'>";
+    						echo "<div class='thumbnail'>";
+    						echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
+    						echo "</div></div>";
+    					}
+    				?>	
+      					<p>
+    						aqui va un video 
+    					</p>
+    					<p>
+    						aqui va un video 
+    					</p>
+    				</div>
+    			</div>
     		</div>
     	</div>
 	
