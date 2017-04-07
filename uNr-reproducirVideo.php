@@ -72,21 +72,30 @@
     					<iframe width="100%" height="480" src="https://www.youtube.com/embed/47fwjM1XKhA" frameborder="0" allowfullscreen></iframe>
     				</div>
     				<div id="info-video" class="seccion">
-    					
+    					<p>Aqui va el nombre del video</p>
+    					<hr>
+    					<a class="btn" href=""><span class="glyphicon glyphicon-plus"></span>Añadir a</a>
+    					<a class="btn" href=""><span class="glyphicon glyphicon-share-alt"></span>Compartir</a>
+    					<a class="btn" href=""><span class="glyphicon glyphicon-flag"></span>Denunciar</a>
+    					<a class="btn" href=""><span class="glyphicon glyphicon-option-horizontal"></span>Compartir</a>
+    					<span class="float-right">
+    						<a class="btn" href=""><span class="	glyphicon glyphicon-thumbs-up"></span>#</a>
+    						<a class="btn" href=""><span class="glyphicon glyphicon-thumbs-down"></span>#</a>
+    					</span>
     				</div>
     				<div id="opciones-video" class="seccion">
-    					
-    				</div>
+    					<h4>esa seccion es para la opciones de compartir</h4>
+     				</div>
     				<div id="info-publicacion" class="seccion">
-    					
+    					esta es la seccion para la informacion de publicaiocn del video
     				</div>
-    				<div id="comentarios" >
-    					
+    				<div id="comentarios" class="seccion" >
+    					Esta es la seccion de comentarios	
     				</div>
     			</div>
     			<div class="col-md-3">
-    				<div id="lista-videos">
-    				<?php
+    				<div id="lista">
+    					<?php
     					for ($i=1; $i <= 4; $i++) { 
     						echo "<div class='col-md-12'>";
     						echo "<div class='thumbnail'>";
@@ -94,12 +103,6 @@
     						echo "</div></div>";
     					}
     				?>	
-      					<p>
-    						aqui va un video 
-    					</p>
-    					<p>
-    						aqui va un video 
-    					</p>
     				</div>
     			</div>
     		</div>
