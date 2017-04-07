@@ -1,0 +1,7 @@
+los prefijos de los archivos de las paginas php son :
+
+ur-se refiere a las paginas que solo usaran los usuarios registrados
+uNr-las paginas que usaran los usuarios no registrados.
+
+esto se hace debido hay que paginas como la de reproduccion o la principal que tiene dos formas, una para usuarios registrados
+y otra para no registrados, tambien se podria hacer con una consulta php pero por simplifar solamente se hace asi
