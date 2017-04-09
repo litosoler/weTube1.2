@@ -1,0 +1,1 @@
+$(".secciones").height(($(window).height() - 230)/2);
