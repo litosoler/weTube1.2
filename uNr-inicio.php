@@ -10,6 +10,7 @@
 	    <!-- Bootstrap -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	    <link rel="stylesheet" type="text/css" href="css/css-basica.css">
+	    <link rel="stylesheet" type="text/css" href="css/css-inicio.css">
 	    
 	    
   </head>
@@ -65,79 +66,24 @@
 	    </div>
 	    <!-- cuerpo -->
     	<div class="container ">
-    		<div class="row">
-    			<div class="col-md-12 segmentos">
-    					<?php
-    					$contador = 0;
-    					for ($i=1; $i <= 4; $i++) { 
+    		<?php
+    		for ($j=0; $j < 6; $j++) { 	
+    		echo "<div class='row'>";
+    			echo "<div class='col-md-12 segmentos'>";
+    					for ($i=1; $i <= 6; $i++) { 
     						echo "<div class='col-md-2'>";
     						echo "<div class='thumbnail'>";
     						echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
+    						echo "<p class='nombre-video'>Nombre de la aplicacion</p></a>";
+    						echo "<p class='video-pieInfo'>nombre usuario</p>";
+    						echo "<p class='video-pieInfo'># visitas | fecha publicacion";
     						echo "</div></div>";
-
-    						if ($i==2) {
-    							if ($contador != 1) 
-    							$i=0;
-    							$contador++;
-    						}
     					}
-    					?>	
-    			</div>
-    			<hr>
-    			<div class="col-md-12 segmentos">
-    					<?php
-    					$contador = 0;
-    					for ($i=1; $i <= 4; $i++) { 
-    						echo "<div class='col-md-2'>";
-    						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
-    						echo "</div></div>";
-
-    						if ($i==2) {
-    							if ($contador != 1) 
-    							$i=0;
-    							$contador++;
-    						}
-    					}
-    					?>	
-    			</div>
-    			<hr>
-    			<div class="col-md-12 segmentos">
-    					<?php
-    					$contador = 0;
-    					for ($i=1; $i <= 4; $i++) { 
-    						echo "<div class='col-md-2'>";
-    						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
-    						echo "</div></div>";
-
-    						if ($i==2) {
-    							if ($contador != 1) 
-    							$i=0;
-    							$contador++;
-    						}
-    					}
-    					?>	
-    			</div>
-    			<hr>
-    			<div class="col-md-12 segmentos">
-    					<?php
-    					$contador = 0;
-    					for ($i=1; $i <= 4; $i++) { 
-    						echo "<div class='col-md-2'>";
-    						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
-    						echo "</div></div>";
-
-    						if ($i==2) {
-    							if ($contador != 1) 
-    							$i=0;
-    							$contador++;
-    						}
-    					}
-    					?>	
-    			</div>
-    		</div>
+    			echo "</div>";
+    		
+    		echo "</div>"; /*fin row*/
+    	}
+    		?>	
     	</div>
 	
  		<!-- pie de pagina -->
