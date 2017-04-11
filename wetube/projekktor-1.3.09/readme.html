@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style type="text/css">
+    body { background-color: #fdfdfd; padding: 0 20px; color:#000; font: 13px/18px monospace; width: 800px;}
+    a { color: #360; }
+    h3 { padding-top: 20px; }
+    </style>
+
+    <!-- Load player theme -->
+    <link rel="stylesheet" href="themes/maccaco/projekktor.style.css" type="text/css" media="screen" />
+
+    <!-- Load jquery -->
+    <script type="text/javascript" src="jquery-1.9.1.min.js"></script>
+
+    <!-- load projekktor -->
+    <script type="text/javascript" src="projekktor-1.3.09.min.js"></script>
+
+</head>
+<body>
+   <div id="player_a" class="projekktor"></div>
+<script type="text/javascript">
+jQuery(document).ready(function($) {
+    projekktor('#player_a', {
+        debug: false,
+        playerFlashMP4: 'http://www.projekktor.com/wp-content/manual/jarisplayer.swf',
+        playerFlashMP3: 'http://www.projekktor.com/wp-content/manual/jarisplayer.swf',        
+        poster: 'http://www.projekktor.com/wp-content/manual/intro.png',
+        useYTIframeAPI: false, 
+        width: 640,
+        ratio: 16/9,
+        playlist: [{0:{src:'http://www.projekktor.com/wp-content/manual/server.php?path=' + escape('http://www.projekktor.com/wp-content/manual/'), type:"text/json"}}] 
+    });  
+})
+</script>
+</body>
+</html>
