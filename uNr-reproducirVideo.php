@@ -4,7 +4,16 @@
 	    <meta charset="utf-8">
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
-	    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	  
+	    <!-- Load player theme -->
+	    <link rel="stylesheet" href="reproductor/themes/maccaco/projekktor.style.css" type="text/css" media="screen" />
+
+	    <!-- Load jquery -->
+	    <script type="text/javascript" src="reproductor/jquery-1.9.1.min.js"></script>
+
+	    <!-- load projekktor -->
+	    <script type="text/javascript" src="reproductor/projekktor-1.3.09.min.js"></script>
+		    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	    <title>Youtube</title>
 
 	    <!-- Bootstrap -->
@@ -69,7 +78,33 @@
     		<div class="row">
     			<div class="col-md-9">
     				<div>
-    					<iframe width="100%" height="480" src="https://www.youtube.com/embed/47fwjM1XKhA" frameborder="0" allowfullscreen></iframe>
+    					<div class="cuerpo-interno1"><div id="player_a" class="projekktor">
+    				</div>
+					    <script type="text/javascript">
+						    $(document).ready(function() {
+						        projekktor('#player_a', {
+						        poster: 'reproductor/media/intro.png',
+						        width: 848,
+						        height: 400,
+						        playlist: [
+						            {
+						            0: {src: "reproductor/media/1.mp4", type: "video/mp4"}
+						            },
+						            //0: {src: "media/2.mp4", type: "video/mp4"}
+						            {
+						            0: {src: 'reproductor/media/2.mp4', escriba: 'video/mp4'}
+						             },
+						             {
+						            0: {src: "reproductor/media/3.mp4", type: "video/mp4"}
+						            },
+
+						        ]    
+						        }, function(player) {} // on ready 
+						        );
+						    });
+						</script>
+
+    					<!--<iframe width="100%" height="480" src="https://www.youtube.com/embed/47fwjM1XKhA" frameborder="0" allowfullscreen></iframe>-->
     				</div>
     				<div id="info-video" class="seccion">
     					<p>Aqui va el nombre del video</p>
