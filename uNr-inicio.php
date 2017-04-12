@@ -5,7 +5,7 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	    <title>Youtube</title>
+	    <title>WeTube</title>
 
 	    <!-- Bootstrap -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -26,7 +26,7 @@
 					      <li><a href="#">Tendencias</a></li>
 					      <li><a href="#">Historial</a></li>
 					      <li class="divider"></li>
-					      <li class="dropdown-header">LO MEJOR DE YOUTUBE</li>
+					      <li class="dropdown-header">LO MEJOR DE WETUBE</li>
 					      <li><a href="#">Música</a></li>
 					      <li><a href="#">Deportes</a></li>
 					      <li><a href="#">Juegos</a></li>
@@ -37,7 +37,7 @@
 					      <li><a href="#">Explorar Canales</a></li>
 					      <li class="divider"></li>
 					      <li class="dropdown-header">Inicia sesión para ver tus canales y recomendaciones.</li>
-					      <li><a class="btn btn-primary btn-sm" href="ur-iniciarSesion.php">Iniciar Sesión</a></li>
+					      <li><a class="btn btn-primary btn-sm" href="ur-iniciarSesion.php">Iniciar Sesión</a></li>  
 					    </ul>
 					    </span>
 			          	<a href="uNr-nicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="img/logo-youtube.png"></a>
