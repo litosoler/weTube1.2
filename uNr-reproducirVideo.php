@@ -128,17 +128,19 @@
     					Esta es la seccion de comentarios	
     				</div>
     			</div>
-    			<div class="col-md-3">
-    				<div id="lista">
+    			<div class="col-md-3" id="lista-reproduccion">
     					<?php
-    					for ($i=1; $i <= 4; $i++) { 
-    						echo "<div class='col-md-12'>";
-    						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
-    						echo "</div></div>";
-    					}
-    				?>	
-    				</div>
+    					
+    						for ($i=1; $i <= 6; $i++) { 
+    							echo "<div class='col-md-12'>";
+    							echo "<div class='thumbnail'>";
+    							echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
+    							echo "<p class='nombre-video'>Nombre de la aplicacion</p></a>";
+    							echo "<p class='video-pieInfo'>nombre usuario</p>";
+    							echo "<p class='video-pieInfo'># visitas | fecha publicacion";
+    							echo "</div></div>";
+    						}
+    					?>
     			</div>
     		</div>
     	</div>
