@@ -92,10 +92,10 @@
 						            },
 						            //0: {src: "media/2.mp4", type: "video/mp4"}
 						            {
-						            0: {src: 'reproductor/media/2.mp4', escriba: 'video/mp4'}
+						            1: {src: 'reproductor/media/2.mp4', escriba: 'video/mp4'}
 						             },
 						             {
-						            0: {src: "reproductor/media/3.mp4", type: "video/mp4"}
+						            2: {src: "reproductor/media/3.mp4", type: "video/mp4"}
 						            },
 
 						        ]    
