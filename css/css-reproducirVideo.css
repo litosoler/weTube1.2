@@ -12,16 +12,16 @@
 	height: 150px;
 	padding: 15px;
 }
-#opciones-video{
+#compartir-video{
 	height: 120px;
 	padding: 15px;
+	display: none;
 }
 #info-publicacion{
 	height: 90px;
 	padding: 15px;
 }
 #comentarios{
-	height: 260px;
 	padding: 15px;
 }
 .float-right{
@@ -33,13 +33,10 @@
 .descripcion span{
 	margin-top: 0px;
 	padding-top: 0px;
-	font-size: 11px;
-}
-#lista img{
-	width: 150px;
-	height: 95px;
-	padding-right: 3px;
 }
 #lista div{
 	padding: 10px;
+}
+.letra-comentario{
+	font-size: 10px;
 }

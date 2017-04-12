@@ -76,7 +76,7 @@
 	    <!-- cuerpo -->
     	<div class="container">
     		<div class="row">
-    			<div class="col-md-9">
+    			<div class="col-md-8">
     				<div id="player_a" class="projekktor">
     				</div>
     				<div id="info-video" class="seccion">
@@ -91,31 +91,69 @@
     						<a class="btn" href=""><span class="glyphicon glyphicon-thumbs-down"></span>#</a>
     					</span>
     				</div>
-    				<div id="opciones-video" class="seccion">
+    				<div id="compartir-video" class="seccion">
     					<h4>esa seccion es para la opciones de compartir</h4>
      				</div>
     				<div id="info-publicacion" class="seccion">
     					esta es la seccion para la informacion de publicaiocn del video
     				</div>
     				<div id="comentarios" class="seccion" >
-    					Esta es la seccion de comentarios	
+ 
+						<h6>COMENTARIOS-#</h6>
+						<div class="input-group">
+							<span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+							<input id="email" type="text" class="form-control" placeholder="comentario">
+						</div>
+						<hr>
+						<div class="dropdown">
+							<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">comentarios principales
+					 		<span class="caret"></span></button>
+					  		<ul class="dropdown-menu">
+					    		<li><a href="#">Comentarios Principales</a></li>
+					   			<li><a href="#">Más recientes primero</a></li>
+					 		</ul>
+						</div>
+						<br>
+						<!-- comentarios -->
+						<?php 
+							for ($i=0; $i < 5; $i++) {
+							echo "
+							<div class='letra-comentario'>
+								<img src='img/icono-usuario2.png' class='col-md-1 img-responsive float-left'> 
+								<span>
+									Usuario fecha
+								</span>
+								<br>
+								<span>
+									aqui va el comentario
+								</span>
+								<br>
+								<span><a>Responder</a> - #<span>
+	    							<a class=btn' href='#'><span class='	glyphicon glyphicon-thumbs-up'></span></a>
+	    							<a class='btn' href='#'><span class='glyphicon glyphicon-thumbs-down'></span></a>
+	    							</span>
+								</span>
+							</div>";
+						}
+						?>	
     				</div>
     			</div>
-    			<div class="col-md-3" id="lista">
-    			<?php
-    				for ($i=1; $i < 11; $i++) { 			 
-    				echo "<div class='row'>
-    					<img src='img/icono1.jpg' class='float-left'>
-						<span class='descripcion'>
-							<span>Nombre de la aplicacion</span>
-							<br>
-							<span>nombre usuario</span>
-							<br>
-							<span># visitas</span>
-						</span>
-					</div>";	
-    				 } 
-    			 ?>
+    			<div class="col-md-4
+    			" id="lista">
+	    			<?php
+	    				for ($i=1; $i < 11; $i++) { 			 
+	    				echo "<div class='row'>
+	    					<img src='img/icono1.jpg' class='float-left col-md-6 img-responsive'>
+							<span class='descripcion col-md-6'>
+								<span>Nombre de la aplicacion</span>
+								<br>
+								<span>nombre usuario</span>
+								<br>
+								<span># visitas</span>
+							</span>
+						</div>";	
+	    				 } 
+	    			 ?>
     			</div>
     		</div>
     	</div>

@@ -1,7 +1,7 @@
 $(document).ready(function() {
 	projekktor('#player_a', {
 		poster: 'reproductor/media/intro.png',
-		width: 848,
+		width: 750,
 		height: 400,
 		playlist: [
 		{
