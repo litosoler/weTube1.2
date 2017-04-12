@@ -77,34 +77,7 @@
     	<div class="container">
     		<div class="row">
     			<div class="col-md-9">
-    				<div>
-    					<div class="cuerpo-interno1"><div id="player_a" class="projekktor">
-    				</div>
-					    <script type="text/javascript">
-						    $(document).ready(function() {
-						        projekktor('#player_a', {
-						        poster: 'reproductor/media/intro.png',
-						        width: 848,
-						        height: 400,
-						        playlist: [
-						            {
-						            0: {src: "reproductor/media/1.mp4", type: "video/mp4"}
-						            },
-						            //0: {src: "media/2.mp4", type: "video/mp4"}
-						            {
-						            1: {src: 'reproductor/media/2.mp4', escriba: 'video/mp4'}
-						             },
-						             {
-						            2: {src: "reproductor/media/3.mp4", type: "video/mp4"}
-						            },
-
-						        ]    
-						        }, function(player) {} // on ready 
-						        );
-						    });
-						</script>
-
-    					<!--<iframe width="100%" height="480" src="https://www.youtube.com/embed/47fwjM1XKhA" frameborder="0" allowfullscreen></iframe>-->
+    				<div id="player_a" class="projekktor">
     				</div>
     				<div id="info-video" class="seccion">
     					<p>Aqui va el nombre del video</p>
@@ -128,19 +101,21 @@
     					Esta es la seccion de comentarios	
     				</div>
     			</div>
-    			<div class="col-md-3" id="lista-reproduccion">
-    					<?php
-    					
-    						for ($i=1; $i <= 6; $i++) { 
-    							echo "<div class='col-md-12'>";
-    							echo "<div class='thumbnail'>";
-    							echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
-    							echo "<p class='nombre-video'>Nombre de la aplicacion</p></a>";
-    							echo "<p class='video-pieInfo'>nombre usuario</p>";
-    							echo "<p class='video-pieInfo'># visitas | fecha publicacion";
-    							echo "</div></div>";
-    						}
-    					?>
+    			<div class="col-md-3" id="lista">
+    			<?php
+    				for ($i=1; $i < 11; $i++) { 			 
+    				echo "<div class='row'>
+    					<img src='img/icono1.jpg' class='float-left'>
+						<span class='descripcion'>
+							<span>Nombre de la aplicacion</span>
+							<br>
+							<span>nombre usuario</span>
+							<br>
+							<span># visitas</span>
+						</span>
+					</div>";	
+    				 } 
+    			 ?>
     			</div>
     		</div>
     	</div>
@@ -194,5 +169,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   	<script src="js/js-basica.js" type="text/javascript" ></script>
+  	<script src="js/js-reproducirvideo.js" type="text/javascript"></script>
   </body>
 </html>

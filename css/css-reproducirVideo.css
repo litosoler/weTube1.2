@@ -1,6 +1,9 @@
 #lista{
 	background-color: white;
+	padding-top: 5px;
+	padding-bottom: 8px
 }
+
 .container{
 	background-color: #F1F1F1;
 }
@@ -24,4 +27,19 @@
 .float-right{
 	float: right;
 }
-
+.float-left{
+	float: left;
+}
+.descripcion span{
+	margin-top: 0px;
+	padding-top: 0px;
+	font-size: 11px;
+}
+#lista img{
+	width: 150px;
+	height: 95px;
+	padding-right: 3px;
+}
+#lista div{
+	padding: 10px;
+}
