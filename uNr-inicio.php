@@ -40,7 +40,7 @@
 					      <li><a class="btn btn-primary btn-sm" href="ur-iniciarSesion.php">Iniciar Sesión</a></li>  
 					    </ul>
 					    </span>
-			          	<a href="uNr-nicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="img/logo-youtube.png"></a>
+			          	<a href="uNr-inicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="img/logo-youtube.png"></a>
 			          	<a href="uNr-inicio.php"><img id="logo-sm" class="hidden-md hidden-lg" src="img/logo-reproduccion.png"></a>            
 			        </div>
 			        <div class="col-xs-6 col-sm-7 col-md-7">
@@ -73,7 +73,7 @@
     					for ($i=1; $i <= 6; $i++) { 
     						echo "<div class='col-md-2'>";
     						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
+    						echo "<a href='uNr-reproducirVideo.php'><img src ='img/icono$i.jpg' class='img-responsive'>";
     						echo "<p class='nombre-video'>Nombre de la aplicacion</p></a>";
     						echo "<p class='video-pieInfo'>nombre usuario</p>";
     						echo "<p class='video-pieInfo'># visitas | fecha publicacion";

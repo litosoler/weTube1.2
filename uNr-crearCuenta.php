@@ -12,7 +12,7 @@
 
 	<body>
 		<div class="container-fluid" id= "encabezado"">
-			<a href=""><img src="img/logo-youtube.png" id="img-1"></a>
+			<a href="uNr-inicio.php"><img src="img/logo-youtube.png" id="img-1"></a>
 			<a href="ur-iniciarSesion.php" class="btn btn-primary" id="btn-1" role="button">Acceder</a>
 		</div>
 
