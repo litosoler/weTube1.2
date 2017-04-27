@@ -1,3 +1,15 @@
+<?php
+	/*determina si hay una sesion iniciada, si no te regresa al inicio de sesion*/
+	session_start();
+	if (!array_key_exists("codigoUsuario", $_SESSION)){
+		header("Location: iniciarSesion.php");
+	}
+	if ($_SESSION["codigoTipoUsuario"] != 2){
+		header("Location: iniciarSesion.php");
+	}
+	echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSION["codigoTipoUsuario"];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -9,7 +21,7 @@
 
 	    <!-- Bootstrap -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    <link rel="stylesheet" type="text/css" href="css/css-basica.css">
+	    <link rel="stylesheet" type="text/css" href="../css/css-basica.css">
 	    
 	    
   </head>
@@ -39,8 +51,8 @@
 					      <li><a href="#">Explorar Canales</a></li>
 					    </ul>
 					    </span>
-			          	<a href="Inicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="img/logo-youtube.png"></a>
-			          	<a href="Inicio.php"><img id="logo-sm" class="hidden-md hidden-lg" src="img/logo-reproduccion.png"></a>         
+			          	<a href="inicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="../img/logo-youtube.png"></a>
+			          	<a href="inicio.php"><img id="logo-sm" class="hidden-md hidden-lg" src="../img/logo-reproduccion.png"></a>         
 			        </div>
 			        <div class="col-xs-6 col-sm-7 col-md-7">
 			          	<div class="input-group ">
@@ -60,11 +72,11 @@
 			        		<ul class="dropdown-menu">
 						       <li>Correo Electronico</li>	
 						       <li class="divider"></li>
-						       <a href="ur-ConfiguracionUsuario.php"><span class="glyphicon glyphicon-cog"></span></a>
+						       <a href="ConfiguracionUsuario.php"><span class="glyphicon glyphicon-cog"></span></a>
 						       <li>Nombre Usuario</li>
 						       <li># Suscriptores</li>
 						       <li class="divider"></li>
-						       <a class="btn btn-primary form-control" href="uNr-inicio.php">Cerrar Sesión</a>
+						       <button id="cerrarSesion" class="btn btn-primary form-control" >Cerrar Sesión</button>
 						    </ul>
 						   </span>
 						<span class="dropdown"> 
@@ -77,7 +89,7 @@
 						      <li><a href="#">Notificacion 2</a></li>
 						    </ul>
 						</span>
-					        <a class="btn btn-primary" href="ur-subirVideo.php"><span class="glyphicon glyphicon-open"></span></a>
+					        <a class="btn btn-primary" href="subirVideo.php"><span class="glyphicon glyphicon-open"></span></a>
 
 			        </div>
 			    </div>
@@ -94,7 +106,7 @@
     					for ($i=1; $i <= 4; $i++) { 
     						echo "<div class='col-md-2'>";
     						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
+    						echo "<a href=''><img src ='../img/icono$i.jpg' class='img-responsive'>";
     						echo "</div></div>";
 
     						if ($i==2) {
@@ -112,7 +124,7 @@
     					for ($i=1; $i <= 4; $i++) { 
     						echo "<div class='col-md-2'>";
     						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
+    						echo "<a href=''><img src ='../img/icono$i.jpg' class='img-responsive'>";
     						echo "</div></div>";
 
     						if ($i==2) {
@@ -130,7 +142,7 @@
     					for ($i=1; $i <= 4; $i++) { 
     						echo "<div class='col-md-2'>";
     						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
+    						echo "<a href=''><img src ='../img/icono$i.jpg' class='img-responsive'>";
     						echo "</div></div>";
 
     						if ($i==2) {
@@ -148,7 +160,7 @@
     					for ($i=1; $i <= 4; $i++) { 
     						echo "<div class='col-md-2'>";
     						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='img/icono$i.jpg' class='img-responsive'>";
+    						echo "<a href=''><img src ='../img/icono$i.jpg' class='img-responsive'>";
     						echo "</div></div>";
 
     						if ($i==2) {
@@ -166,7 +178,7 @@
  		<div class="barra-inferior">
 			
 			<ul class="HLista">
-	        	<a href="#"><li><img class="logo-youtube" src="img/logo-youtube.png"></li></a>
+	        	<a href="#"><li><img class="logo-youtube" src="../img/logo-youtube.png"></li></a>
 				<hr class="clear">
 	        </ul>  
 			<ul class="HLista2 hidden-xs hidden-sm">
@@ -197,7 +209,7 @@
 						<h3 class="modal-title">Lo sentimos, estamos trabajando en esta Funcionalidad.</h3>
 					</div>
 					<div class="modal-body">
-						<img src="img/icono-enfermo.png" class="img-responsive">
+						<img src="../img/icono-enfermo.png" class="img-responsive">
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -210,6 +222,7 @@
      <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  	<script src="js/js-basica.js" type="text/javascript" ></script>
+  	<script src="../js/js-basica.js" type="text/javascript" ></script>
+  	<script src="../js/inicio.js" type="text/javascript"></script>
   </body>
 </html>

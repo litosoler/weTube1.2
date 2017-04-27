@@ -31,16 +31,16 @@
 }
 
 .activo{
-	background-color: #CC181E;
+	background-color:#CC2626;
 }
 
 #informacion{
-	height:500px;
 	background-color: white;
+	padding: 40px; 
 }
 #informacion-hd{
-	margin: 18px;
-	margin-bottom: 2px;
+	padding: 30px;
+	padding-bottom: 2px;
 }
 #informacion-hd button{
 	float: right;
@@ -65,6 +65,27 @@ h4{
 .oculto{
 	display: none;
 }
-.formulario{
-	margin: 50px;
+
+.input{
+	margin: 0px;
+	margin-bottom: 5px;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.5;
+	color: #555;
+	background-color: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-shadow: 0 1px 1px rgba(0,0,0,0.075);
+}
+.error{
+	border-color: #a94442;
+}
+.input:disabled{
+	background-color: #eee;
+    opacity: 1;
+}
+#guardar-div{
+	padding-top: 10px;
 }

@@ -1,3 +1,10 @@
+<?php
+	/*determina si hay una sesion iniciada, si no te regresa al inicio de sesion*/
+	session_start();
+	if (!array_key_exists("codigoUsuario", $_SESSION)){
+		header("Location: iniciarSesion.php");
+	}
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>

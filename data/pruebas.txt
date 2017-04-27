@@ -1,0 +1,48 @@
+Usuario(
+	$_POST["codigoPais"],
+	2,
+	1,
+	$_POST["nombre"],
+	$_POST["apellido],
+	$_POST["nombre"].".".$_POST["apellido],
+	$_POST["emaiL"],
+	$_POST["pwd"], 
+	"",    
+	$_POST["genero"],
+	$_POST["fechaNacimiento"],  
+	date("Y-m-d"),
+	$_POST["telefono"]
+);
+$Pais,
+$tipoUsuaio,
+$estadoUsuario,
+$nombre,
+$apellido,
+$usuario,
+$correo,
+$contrasena,
+$urlFoto,
+$sexo,
+$fechaNacimiento,
+$fechaRegistro,
+$telefono	
+
+apellido != "" && email != "" && pwd == pwd2 && dia != "" && mes != 0 && año != "" && telefono != && "" && genero != 0 && codigoPais != 0
+
+"INSERT INTO tbl_usuarios(CODIGO_PAIS, CODIGO_TIPO_USUARIO, CODIGO_ESTADO_USUARIO, NOMBRE, APELLIDO, USUARIO, CORREO_ELECTRONICO, PASSWORD, SEXO, FECHA_NACIMIENTO, FECHA_REGISTRO, TELEFONO) VALUES ('%S','%S','%S','%S','%S','%S','%S','%S','%S','%S','%S','%S','%S',);",
+$conexion->getEnlace()->real_escape_string(stripslashes( $this->Pais)),
+$conexion->getEnlace()->real_escape_string(stripslashes( $this->tipoUsuaio)),
+$conexion->getEnlace()->real_escape_string(stripslashes( $this->estadoUsuario)),
+$conexion->getEnlace()->real_escape_string(stripslashes( $this->nombre)),
+$conexion->getEnlace()->real_escape_string(stripslashes( $this->apellido)),
+$conexion->getEnlace()->real_escape_string(stripslashes( $this->usuario)),
+$conexion->getEnlace()->real_escape_string(stripslashes( $this->correo)),
+$conexion->getEnlace()->real_escape_string(stripslashes( $this->contrasena)),
+$conexion->getEnlace()->real_escape_string(stripslashes( $this->sexo)),
+$conexion->getEnlace()->real_escape_string(stripslashes( $this->fechaNacimiento)),
+$conexion->getEnlace()->real_escape_string(stripslashes( $this->fechaRegistro)),
+$conexion->getEnlace()->real_escape_string(stripslashes( $this->telefono)),
+
+
+);
+

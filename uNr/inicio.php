@@ -5,11 +5,12 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	    <title>Youtube</title>
+	    <title>WeTube</title>
 
 	    <!-- Bootstrap -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    <link rel="stylesheet" type="text/css" href="css/css-basica.css">
+	    <link rel="stylesheet" type="text/css" href="../css/css-basica.css">
+	    <link rel="stylesheet" type="text/css" href="../css/css-inicio.css">
 	    
 	    
   </head>
@@ -22,25 +23,25 @@
 		    			<span id="icono-menu" class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown"></span>
 		    			<ul class="dropdown-menu">
 					      <li><a href="#">Inicio</a></li>
-					      <li><a href="#">Mi canal</a></li>
 					      <li><a href="#">Tendencias</a></li>
-					      <li><a href="#">Suscripciones</a></li>
-					      <li class="divider"></li>
-					      <li class="dropdown-header">BIBLIOTECA</li>
 					      <li><a href="#">Historial</a></li>
-					      <li><a href="#">Ver más tarde</a></li>
-					      <li><a href="#">Videos favoritos</a></li>
 					      <li class="divider"></li>
-					      <li class="dropdown-header">SUSCRIPCIONES</li>
-					      <li><a href="#"></a></li>
-					      <li><a href="#"></a></li>
-					      <li><a href="#"></a></li>
+					      <li class="dropdown-header">LO MEJOR DE WETUBE</li>
+					      <li><a href="#">Música</a></li>
+					      <li><a href="#">Deportes</a></li>
+					      <li><a href="#">Juegos</a></li>
+					      <li><a href="#">Noticias</a></li>
+					      <li><a href="#">En Directo</a></li>
+					      <li><a href="#">Video en 360°</a></li>
 					      <li class="divider"></li>
 					      <li><a href="#">Explorar Canales</a></li>
+					      <li class="divider"></li>
+					      <li class="dropdown-header">Inicia sesión para ver tus canales y recomendaciones.</li>
+					      <li><a class="btn btn-primary btn-sm" href="../ur/iniciarSesion.php">Iniciar Sesión</a></li>  
 					    </ul>
 					    </span>
-			          	<a href="Inicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="img/logo-youtube.png"></a>
-			          	<a href="Inicio.php"><img id="logo-sm" class="hidden-md hidden-lg" src="img/logo-reproduccion.png"></a>         
+			          	<a href="uNr/inicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="../img/logo-youtube.png"></a>
+			          	<a href="uNr/inicio.php"><img id="logo-sm" class="hidden-md hidden-lg" src="../img/logo-reproduccion.png"></a>            
 			        </div>
 			        <div class="col-xs-6 col-sm-7 col-md-7">
 			          	<div class="input-group ">
@@ -55,30 +56,8 @@
 			        <div class="col-xs-0 col-sm-1 col-md-1">       		 	
 			        </div>
 			        <div class="input-group-btn col-xs-2 col-sm-2  col-md-2">
-			        	<span class="dropdown">   
-			        		<a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
-			        		<ul class="dropdown-menu">
-						       <li>Correo Electronico</li>	
-						       <li class="divider"></li>
-						       <a href="ur-ConfiguracionUsuario.php"><span class="glyphicon glyphicon-cog"></span></a>
-						       <li>Nombre Usuario</li>
-						       <li># Suscriptores</li>
-						       <li class="divider"></li>
-						       <a class="btn btn-primary form-control" href="uNr-inicio.php">Cerrar Sesión</a>
-						    </ul>
-						   </span>
-						<span class="dropdown"> 
-				            <a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span></a>
-				            <ul class="dropdown-menu">
-						      <li class="dropdown-header">Notificaciones</li>
-						       <li class="divider"></li>
-						      <li><a href="#">Notificaion 1</a></li>
-						       <li class="divider"></li>
-						      <li><a href="#">Notificacion 2</a></li>
-						    </ul>
-						</span>
-					        <a class="btn btn-primary" href="ur-subirVideo.php"><span class="glyphicon glyphicon-open"></span></a>
-
+			            <a class="btn btn-primary hidden-xs"  href="ur-iniciarSesion.php"><span class="glyphicon glyphicon-open"></span></a>
+			           	<a class="btn btn-primary" href="../ur/iniciarSesion.php"><span class="glyphicon glyphicon-log-in"></span> <span class="hidden-sm hidden-xs" >Iniciar Sesion </span> </a>
 			        </div>
 			    </div>
 		    </div>
@@ -86,10 +65,25 @@
 	    	</div>	
 	    </div>
 	    <!-- cuerpo -->
-    	<div class="container cuerpo">
-    		<div class="row">
+    	<div class="container ">
+    		<?php
+    		for ($j=0; $j < 6; $j++) { 	
+    		echo "<div class='row'>";
+    			echo "<div class='col-md-12 segmentos'>";
+    					for ($i=1; $i <= 6; $i++) { 
+    						echo "<div class='col-md-2'>";
+    						echo "<div class='thumbnail'>";
+    						echo "<a href='uNr-reproducirVideo.php'><img src ='img/icono$i.jpg' class='img-responsive'>";
+    						echo "<p class='nombre-video'>Nombre de la aplicacion</p></a>";
+    						echo "<p class='video-pieInfo'>nombre usuario</p>";
+    						echo "<p class='video-pieInfo'># visitas | fecha publicacion";
+    						echo "</div></div>";
+    					}
+    			echo "</div>";
     		
-    		</div>
+    		echo "</div>"; /*fin row*/
+    	}
+    		?>	
     	</div>
 	
  		<!-- pie de pagina -->
