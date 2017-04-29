@@ -8,6 +8,7 @@
 	height: 370px;
 	text-align: center;
 	padding:auto; 
+	padding-top: 120px;
 }
 #subirVideo img{
 	margin-top: 70px
@@ -63,4 +64,16 @@
 }
 .quitar-borde{
 	border-left: 0px !important;
+}
+#cuerpo-guardadVideo{
+	height: 400px;
+	background-color: white;
+	padding: 50px;
+}
+#miniatura{
+	height: 130px;
+	margin: auto;
+}
+.error{
+	border-color: #a94442;
 }

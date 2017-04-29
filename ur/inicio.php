@@ -7,7 +7,7 @@
 	if ($_SESSION["codigoTipoUsuario"] != 2){
 		header("Location: iniciarSesion.php");
 	}
-	echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSION["codigoTipoUsuario"];
+	echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSION["codigoTipoUsuario"]."<br>codigo Canal: ".$_SESSION["CODIGO_CANAL"];
 ?>
 
 <!DOCTYPE html>

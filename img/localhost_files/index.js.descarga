@@ -1,0 +1,16 @@
+$("#subir").change(function(){
+	// alert();
+	// $("#prueba").html(archivo);
+	var archivo = new FormData($("#formulario")[0]);
+	var ruta = "ajax/guardarArchivo.php";
+	$.ajax({
+		url: ruta,
+		type: "POST",
+		data: archivo,
+		contentType: false,
+		processData: false,
+		success: function(respuesta){
+			$("#prueba").html(respuesta);
+		}
+	});
+}); 

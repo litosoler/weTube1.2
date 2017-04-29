@@ -32,6 +32,7 @@ $("#btn-siguiente").click(function(){
 		else{
 			$("#div-email").removeClass("has-error");	
 		}
+	
 	// comparar contraseñas
 	pwd = $("#pwd").val(); 
 	pwd2 = $("#pwd2").val();
@@ -85,6 +86,17 @@ $("#btn-siguiente").click(function(){
 			$("#año").removeClass("error");	
 		}	
 		//telefono
+
+	//genero
+	genero = $("#genero").val().trim(); 
+		 if ( genero == 0) {
+		 	$("#div-genero").addClass("has-error");
+		 	$(this).button("reset");
+		 }else{
+       		$("#div-genero").removeClass("has-error");
+		 }
+
+	//telefono
 	telefono = $("#numero").val(); 
 		if (telefono == "" ){
 			$("#numero").addClass("error");
@@ -94,18 +106,8 @@ $("#btn-siguiente").click(function(){
 			$("#numero").removeClass("error");	
 		}
 
-		//genero
-	genero = $("#genero").val().trim(); 
-		 if ( genero == 0) {
-		 	$("#div-genero").addClass("has-error");
-		 	$(this).button("reset");
-		 }else{
-       		$("#div-genero").removeClass("has-error");
-		 }
     
-
-
-		// ubicacion
+	// ubicacion
 	codigoPais = $("#ubicacion").val().trim(); 
 		 if(codigoPais == 0) {
 		 	$("#codigo-area").addClass("error");
@@ -115,7 +117,6 @@ $("#btn-siguiente").click(function(){
 		 	 $("#codigo-area").removeClass("error");
        		$("#div-ubicacion").removeClass("has-error");
 		 }
-
 
 
 	/*Guardar Registro*/

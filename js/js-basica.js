@@ -1,9 +1,9 @@
 $("#icono-subirVideo").hover(
 	function(){
-		$("#icono-subirVideo").attr("src","img/icono-subirVideo2.png");
+		$("#icono-subirVideo").attr("src","../img/icono-subirVideo2.png");
 	},
 	function(){
-		$("#icono-subirVideo").attr("src","img/icono-subirVideo.png");		
+		$("#icono-subirVideo").attr("src","../img/icono-subirVideo.png");		
 	}
 );
 $("#cerrarSesion").click(function(){

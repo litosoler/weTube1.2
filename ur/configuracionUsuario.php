@@ -120,6 +120,7 @@ echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSIO
 						<button id="actualizar" class="btn btn-primary btn-sm">Modificar Informaicon</button>
 						<button data-toggle="modal" data-target="#establecerContrasena" id="contrasena" class="btn btn-primary btn-sm">Modificar Contraseña</button>
 					</div>
+					<p id="prueba2"></p>
 					<hr>
 					<div id="info-cuerpo" class="col-md-12">
 						<div class="form-group col-xs-12 col-sm-12  col-md-offset-3 col-md-6">
@@ -250,21 +251,22 @@ echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSIO
 				</div>
 				<div class="modal-body">
 					<div class="form-group">
-						<div class="form-group">
+						<div class="form-group" id="div-actual">
 						<label for="pwd-actual">Contraseña Actual</label>
 						<input type="password" id="pwd-actual" class="form-control">
 						</div>
-						<div class="form-group">
+						<div class="form-group" id="div-nueva">
 						<label for="pwd-nueva">Contraseña Nueva</label>
 						<input type="password" id="pwd-nueva" class="form-control">
 						</div>
-						<div class="form-group">
+						<div class="form-group" id="div-confirmacion">
 						<label for="pwd-confirmacion">Confirmar Contraseña</label>
 						<input type="password" id="pwd-confirmacion" class="form-control">
 						</div>
 					</div>
 				</div>
 				<div class="modal-footer">
+					<p id="prueba"></p>
 					<button type="button" id="actulizarContrasena" class="btn btn-default" >Actualizar</button>
 					<button  type="button" id="cerrar" class="btn btn-default" data-dismiss="modal">cerrar</button>
 				</div>
