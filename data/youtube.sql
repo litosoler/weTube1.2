@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 27-04-2017 a las 03:48:19
+-- Tiempo de generación: 30-04-2017 a las 20:55:53
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -42,11 +42,18 @@ CREATE TABLE `tbl_canales` (
   `CODIGO_CANAL` int(11) NOT NULL,
   `CODIGO_USUARIO` int(11) NOT NULL,
   `NOMBRE_CANAL` varchar(200) NOT NULL,
-  `DESCRIPCION` text NOT NULL,
+  `DESCRIPCION` text,
   `CANTIDAD_SUSCRIPTORES` double NOT NULL,
   `FECHA_CREACION` datetime(6) DEFAULT NULL,
   `URL_CANAL` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tbl_canales`
+--
+
+INSERT INTO `tbl_canales` (`CODIGO_CANAL`, `CODIGO_USUARIO`, `NOMBRE_CANAL`, `DESCRIPCION`, `CANTIDAD_SUSCRIPTORES`, `FECHA_CREACION`, `URL_CANAL`) VALUES
+(2, 2, 'Lito.Soler', NULL, 0, '2017-04-28 00:00:00.000000', 'weTube1.2/ur/verificarCanal.php/Lito.Soler');
 
 -- --------------------------------------------------------
 
@@ -192,9 +199,18 @@ INSERT INTO `tbl_estados_usuarios` (`CODIGO_ESTADO_USUARIO`, `ESTADO_USUARIO`) V
 --
 
 CREATE TABLE `tbl_estados_videos` (
-  `CODIGO_ESTADO_VIDEO` double NOT NULL,
+  `CODIGO_ESTADO_VIDEO` int(11) NOT NULL,
   `NOMBRE_ESTADO_VIDEO` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tbl_estados_videos`
+--
+
+INSERT INTO `tbl_estados_videos` (`CODIGO_ESTADO_VIDEO`, `NOMBRE_ESTADO_VIDEO`) VALUES
+(1, 'activo'),
+(2, 'bloqueado'),
+(3, 'eliminado');
 
 -- --------------------------------------------------------
 
@@ -205,7 +221,7 @@ CREATE TABLE `tbl_estados_videos` (
 CREATE TABLE `tbl_estados_videos_x_lugares` (
   `CODIGO_VIDEO` int(11) NOT NULL,
   `CODIGO_LUGAR` double NOT NULL,
-  `CODIGO_ESTADO_VIDEO` double NOT NULL
+  `CODIGO_ESTADO_VIDEO` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -230,10 +246,20 @@ CREATE TABLE `tbl_historial_videos` (
 --
 
 CREATE TABLE `tbl_idiomas` (
-  `CODIGO_IDIOMA` double NOT NULL,
+  `CODIGO_IDIOMA` int(11) NOT NULL,
   `NOMBRE_IDIOMA` varchar(200) NOT NULL,
   `ABREVIATURA` varchar(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tbl_idiomas`
+--
+
+INSERT INTO `tbl_idiomas` (`CODIGO_IDIOMA`, `NOMBRE_IDIOMA`, `ABREVIATURA`) VALUES
+(1, 'catalan', 'ca'),
+(2, 'aleman', 'de'),
+(3, 'ingles', 'en'),
+(4, 'español', 'es');
 
 -- --------------------------------------------------------
 
@@ -601,8 +627,8 @@ CREATE TABLE `tbl_shares` (
 --
 
 CREATE TABLE `tbl_subtitulos` (
-  `CODIGO_SUBTITULO` double NOT NULL,
-  `CODIGO_IDIOMA` double NOT NULL,
+  `CODIGO_SUBTITULO` int(11) NOT NULL,
+  `CODIGO_IDIOMA` int(11) NOT NULL,
   `CODIGO_VIDEO` int(11) NOT NULL,
   `DESCRIPCION` text NOT NULL,
   `ARCHIVO_SUBTITULOS` longblob NOT NULL
@@ -745,7 +771,7 @@ CREATE TABLE `tbl_usuarios` (
 --
 
 INSERT INTO `tbl_usuarios` (`CODIGO_USUARIO`, `CODIGO_LUGAR`, `CODIGO_PAIS`, `CODIGO_TIPO_USUARIO`, `CODIGO_ESTADO_USUARIO`, `NOMBRE`, `APELLIDO`, `CORREO_ELECTRONICO`, `PASSWORD`, `FOTOGRAFIA`, `USUARIO`, `SEXO`, `FECHA_NACIMIENTO`, `FECHA_REGISTRO`, `TELEFONO`) VALUES
-(2, NULL, 'HN', 2, 1, 'Lito', 'Soler', 'lito.soler1@gmail.com', '1234', NULL, 'Lito.Soler', 'hombre', '1992-12-29 00:00:00.000000', '2017-04-25 00:00:00.000000', '89338805'),
+(2, NULL, 'HN', 2, 1, 'Lito', 'Soler', 'lito@gmail.com', 'zxcv', NULL, 'Lito.Soler', 'hombre', '1992-12-29 00:00:00.000000', '2017-04-25 00:00:00.000000', '89338805'),
 (3, NULL, 'HN', 2, 1, 'Emilsson', 'Soler', 'emilsson.soler@gmail.com', '1324', NULL, 'Emilsson.Soler', 'hombre', '1992-12-29 00:00:00.000000', '2017-04-25 00:00:00.000000', '88552211'),
 (4, NULL, 'HN', 2, 1, 'Emilsson', 'Soler', 'edennirs@gmail.com', '1234', NULL, 'Emilsson.Soler', 'hombre', '0199-04-17 00:00:00.000000', '2017-04-26 00:00:00.000000', '97100418'),
 (5, NULL, 'HN', 3, 1, 'Administrador', 'WeTube', 'admin@wetube.com', 'asd.456', NULL, 'admin', 'otro', '2017-04-26 00:00:00.000000', '2017-04-26 00:00:00.000000', '89338805');
@@ -783,20 +809,20 @@ CREATE TABLE `tbl_usuario_etiquetados` (
 CREATE TABLE `tbl_videos` (
   `CODIGO_VIDEO` int(11) NOT NULL,
   `CODIGO_USUARIO` int(11) NOT NULL,
-  `CODIGO_ESTADO_VIDEO` double NOT NULL,
-  `CODIGO_IDIOMA` double NOT NULL,
+  `CODIGO_ESTADO_VIDEO` int(11) NOT NULL,
+  `CODIGO_IDIOMA` int(11) NOT NULL,
   `CODIGO_CANAL` int(11) NOT NULL,
   `NOMBRE_VIDEO` varchar(200) NOT NULL,
-  `RESOLUCION` double NOT NULL,
+  `URL_IMG` varchar(200) NOT NULL,
   `DURACION_SEGUNDOS` double NOT NULL,
   `CANTIDAD_LIKES` double NOT NULL,
   `CANTIDAD_DISLIKES` double NOT NULL,
   `CANTIDAD_VISUALIZACIONES` double NOT NULL,
   `FECHA_SUBIDA` datetime(6) NOT NULL,
-  `ARCHIVO` longblob NOT NULL,
+  `RUTA_VIDEO` varchar(200) NOT NULL,
   `DESCRIPCION` text NOT NULL,
   `CANTIDAD_SHARES` double NOT NULL,
-  `URL` varchar(200) NOT NULL
+  `URL` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -1099,12 +1125,27 @@ ALTER TABLE `tbl_videos_x_lista`
 -- AUTO_INCREMENT de la tabla `tbl_canales`
 --
 ALTER TABLE `tbl_canales`
-  MODIFY `CODIGO_CANAL` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CODIGO_CANAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT de la tabla `tbl_estados_usuarios`
 --
 ALTER TABLE `tbl_estados_usuarios`
   MODIFY `CODIGO_ESTADO_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `tbl_estados_videos`
+--
+ALTER TABLE `tbl_estados_videos`
+  MODIFY `CODIGO_ESTADO_VIDEO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT de la tabla `tbl_idiomas`
+--
+ALTER TABLE `tbl_idiomas`
+  MODIFY `CODIGO_IDIOMA` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT de la tabla `tbl_subtitulos`
+--
+ALTER TABLE `tbl_subtitulos`
+  MODIFY `CODIGO_SUBTITULO` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `tbl_tipos_usuarios`
 --
