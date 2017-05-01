@@ -1,3 +1,11 @@
+#dropdown-menu-usuario{  
+	left: -50;
+	top: 12PX;
+}
+#dropdown-menu-noti{
+	top: 12PX;
+	left: -90;
+}
 hr{
 	height: 5px;
 	color: black;
