@@ -72,6 +72,7 @@
 		case 4:
 			session_unset();
 			break;
+		//crear canal
 		case 5:
 			$resultado = array();
 			$sql = sprintf("INSERT INTO tbl_canales(CODIGO_USUARIO, NOMBRE_CANAL, CANTIDAD_SUSCRIPTORES, FECHA_CREACION, URL_CANAL) VALUES ('%s', '%s', '%s', '%s', 'weTube1.2/ur/verificarCanal.php/%s');",
@@ -82,6 +83,7 @@
 				$_POST["nombre"].".".$_POST["apellido"]
 				);
 			$consulta = $conexion->ejecutar($sql);
+			//$resultado["sql"]= $sql;//linea para depurar si hay error en la consulta
 			if ($consulta) {
 				$sql = "SELECT CODIGO_CANAL FROM tbl_canales WHERE CODIGO_USUARIO=".$_SESSION["codigoUsuario"].";";
 				$consulta2 = $conexion->ejecutar($sql);
