@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 30-04-2017 a las 20:55:53
+-- Tiempo de generación: 01-05-2017 a las 06:30:32
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -42,10 +42,10 @@ CREATE TABLE `tbl_canales` (
   `CODIGO_CANAL` int(11) NOT NULL,
   `CODIGO_USUARIO` int(11) NOT NULL,
   `NOMBRE_CANAL` varchar(200) NOT NULL,
-  `DESCRIPCION` text,
+  `DESCRIPCION` varchar(500) DEFAULT NULL,
   `CANTIDAD_SUSCRIPTORES` double NOT NULL,
-  `FECHA_CREACION` datetime(6) DEFAULT NULL,
-  `URL_CANAL` text NOT NULL
+  `FECHA_CREACION` datetime NOT NULL,
+  `URL_CANAL` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -53,7 +53,7 @@ CREATE TABLE `tbl_canales` (
 --
 
 INSERT INTO `tbl_canales` (`CODIGO_CANAL`, `CODIGO_USUARIO`, `NOMBRE_CANAL`, `DESCRIPCION`, `CANTIDAD_SUSCRIPTORES`, `FECHA_CREACION`, `URL_CANAL`) VALUES
-(2, 2, 'Lito.Soler', NULL, 0, '2017-04-28 00:00:00.000000', 'weTube1.2/ur/verificarCanal.php/Lito.Soler');
+(9, 2, 'Lito.Soler', NULL, 0, '2017-05-01 00:00:00', 'weTube1.2/ur/verificarCanal.php/Lito.Soler');
 
 -- --------------------------------------------------------
 
@@ -771,7 +771,7 @@ CREATE TABLE `tbl_usuarios` (
 --
 
 INSERT INTO `tbl_usuarios` (`CODIGO_USUARIO`, `CODIGO_LUGAR`, `CODIGO_PAIS`, `CODIGO_TIPO_USUARIO`, `CODIGO_ESTADO_USUARIO`, `NOMBRE`, `APELLIDO`, `CORREO_ELECTRONICO`, `PASSWORD`, `FOTOGRAFIA`, `USUARIO`, `SEXO`, `FECHA_NACIMIENTO`, `FECHA_REGISTRO`, `TELEFONO`) VALUES
-(2, NULL, 'HN', 2, 1, 'Lito', 'Soler', 'lito@gmail.com', 'zxcv', NULL, 'Lito.Soler', 'hombre', '1992-12-29 00:00:00.000000', '2017-04-25 00:00:00.000000', '89338805'),
+(2, NULL, 'HN', 2, 1, 'Lito', 'Soler', 'lito.soler1@gmail.com', 'zxcv', NULL, 'Lito.Soler', 'hombre', '1992-12-29 00:00:00.000000', '2017-04-25 00:00:00.000000', '89338805'),
 (3, NULL, 'HN', 2, 1, 'Emilsson', 'Soler', 'emilsson.soler@gmail.com', '1324', NULL, 'Emilsson.Soler', 'hombre', '1992-12-29 00:00:00.000000', '2017-04-25 00:00:00.000000', '88552211'),
 (4, NULL, 'HN', 2, 1, 'Emilsson', 'Soler', 'edennirs@gmail.com', '1234', NULL, 'Emilsson.Soler', 'hombre', '0199-04-17 00:00:00.000000', '2017-04-26 00:00:00.000000', '97100418'),
 (5, NULL, 'HN', 3, 1, 'Administrador', 'WeTube', 'admin@wetube.com', 'asd.456', NULL, 'admin', 'otro', '2017-04-26 00:00:00.000000', '2017-04-26 00:00:00.000000', '89338805');
@@ -1125,7 +1125,7 @@ ALTER TABLE `tbl_videos_x_lista`
 -- AUTO_INCREMENT de la tabla `tbl_canales`
 --
 ALTER TABLE `tbl_canales`
-  MODIFY `CODIGO_CANAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CODIGO_CANAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 --
 -- AUTO_INCREMENT de la tabla `tbl_estados_usuarios`
 --
@@ -1160,7 +1160,7 @@ ALTER TABLE `tbl_usuarios`
 -- AUTO_INCREMENT de la tabla `tbl_videos`
 --
 ALTER TABLE `tbl_videos`
-  MODIFY `CODIGO_VIDEO` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CODIGO_VIDEO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- Restricciones para tablas volcadas
 --
