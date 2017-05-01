@@ -100,76 +100,8 @@
 	    <!-- cuerpo -->
     	<div class="container ">
     		<div class="row">
-    			<div class="col-md-12 segmentos">
-    					<?php
-    					$contador = 0;
-    					for ($i=1; $i <= 4; $i++) { 
-    						echo "<div class='col-md-2'>";
-    						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='../img/icono$i.jpg' class='img-responsive'>";
-    						echo "</div></div>";
-
-    						if ($i==2) {
-    							if ($contador != 1) 
-    							$i=0;
-    							$contador++;
-    						}
-    					}
-    					?>	
-    			</div>
-    			<hr>
-    			<div class="col-md-12 segmentos">
-    					<?php
-    					$contador = 0;
-    					for ($i=1; $i <= 4; $i++) { 
-    						echo "<div class='col-md-2'>";
-    						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='../img/icono$i.jpg' class='img-responsive'>";
-    						echo "</div></div>";
-
-    						if ($i==2) {
-    							if ($contador != 1) 
-    							$i=0;
-    							$contador++;
-    						}
-    					}
-    					?>	
-    			</div>
-    			<hr>
-    			<div class="col-md-12 segmentos">
-    					<?php
-    					$contador = 0;
-    					for ($i=1; $i <= 4; $i++) { 
-    						echo "<div class='col-md-2'>";
-    						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='../img/icono$i.jpg' class='img-responsive'>";
-    						echo "</div></div>";
-
-    						if ($i==2) {
-    							if ($contador != 1) 
-    							$i=0;
-    							$contador++;
-    						}
-    					}
-    					?>	
-    			</div>
-    			<hr>
-    			<div class="col-md-12 segmentos">
-    					<?php
-    					$contador = 0;
-    					for ($i=1; $i <= 4; $i++) { 
-    						echo "<div class='col-md-2'>";
-    						echo "<div class='thumbnail'>";
-    						echo "<a href=''><img src ='../img/icono$i.jpg' class='img-responsive'>";
-    						echo "</div></div>";
-
-    						if ($i==2) {
-    							if ($contador != 1) 
-    							$i=0;
-    							$contador++;
-    						}
-    					}
-    					?>	
+    			<div id="div-video">
+    				
     			</div>
     		</div>
     	</div>
