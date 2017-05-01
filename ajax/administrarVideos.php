@@ -14,8 +14,9 @@ $conexion = new Conexion();
 
 
 switch ($_GET["opcion"]) {
+	//guarda un video
 	case 1:
-		$sql = sprintf("INSERT INTO tbl_videos(CODIGO_USUARIO, CODIGO_ESTADO_VIDEO, CODIGO_IDIOMA, CODIGO_CANAL, NOMBRE_VIDEO, URL_IMG, DURACION_SEGUNDOS, CANTIDAD_LIKES, CANTIDAD_DISLIKES, CANTIDAD_VISUALIZACIONES, FECHA_SUBIDA, ARCHIVO, DESCRIPCION, CANTIDAD_SHARES) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');",
+		$sql = sprintf("INSERT INTO tbl_videos(CODIGO_USUARIO, CODIGO_ESTADO_VIDEO, CODIGO_IDIOMA, CODIGO_CANAL, NOMBRE_VIDEO, URL_IMG, DURACION_SEGUNDOS, CANTIDAD_LIKES, CANTIDAD_DISLIKES, CANTIDAD_VISUALIZACIONES, FECHA_SUBIDA, RUTA_VIDEO, DESCRIPCION, CANTIDAD_SHARES) VALUES ('%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s','%s');",
 			$conexion->getEnlace()->real_escape_string(stripslashes($_SESSION["codigoUsuario"])),
 			1,
 			$conexion->getEnlace()->real_escape_string(stripslashes($_POST["codigoIdioma"])),
