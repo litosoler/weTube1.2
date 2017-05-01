@@ -55,14 +55,7 @@ $("#guardar").click(function(){
 					alert("te enviamos a la pagina anterior por si quieres subir otro video");
 					location.href = "subirVideo.php";
 				}
-
 				$("#prueba").html(repuesta.mensaje);
-				$("#nombre").val("");
-				$("#ancho").val(""); 
-				$("#alto").val("");
-				$("#hora").val("");
-				$("#minutos").val(""); 
-				$("#descripcion").val("");
 			},
 			error: function (jqXHR, exception) {
 				var msg = '';
