@@ -35,6 +35,7 @@ $("#crear").click(function(){
 			url: "../ajax/administrarSesion.php?codigo=5",
 			method:"POST",
 			data: parametros,
+			dataType:"json",
 			success: function(respuesta){
 				if (respuesta.codigo == 1) {
 					location.href = "canal.php";
