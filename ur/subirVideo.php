@@ -4,6 +4,13 @@ session_start();
 if (!array_key_exists("codigoUsuario", $_SESSION)){
 	header("Location: iniciarSesion.php");
 }
+if ($_SESSION["codigoTipoUsuario"] != 2){
+	header("Location: iniciarSesion.php");
+}
+if ($_SESSION["CODIGO_CANAL"] ==-1){
+	header("Location: verificarCanal.php");
+}
+echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSION["codigoTipoUsuario"]."<br>codigo Canal: ".$_SESSION["CODIGO_CANAL"];
 ?>
 <!DOCTYPE html>
 <html lang="es">
