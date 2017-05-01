@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-05-2017 a las 06:30:32
+-- Tiempo de generación: 01-05-2017 a las 23:49:52
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -825,6 +825,14 @@ CREATE TABLE `tbl_videos` (
   `URL` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `tbl_videos`
+--
+
+INSERT INTO `tbl_videos` (`CODIGO_VIDEO`, `CODIGO_USUARIO`, `CODIGO_ESTADO_VIDEO`, `CODIGO_IDIOMA`, `CODIGO_CANAL`, `NOMBRE_VIDEO`, `URL_IMG`, `DURACION_SEGUNDOS`, `CANTIDAD_LIKES`, `CANTIDAD_DISLIKES`, `CANTIDAD_VISUALIZACIONES`, `FECHA_SUBIDA`, `RUTA_VIDEO`, `DESCRIPCION`, `CANTIDAD_SHARES`, `URL`) VALUES
+(3, 2, 1, 4, 9, 'AC-DC.mp4', '../videos/miniatura/acdc.jpg', 28440, 0, 0, 0, '2017-05-01 00:00:00.000000', '../videos/archivo/AC-DC.mp4', 'dflgmksdÃ±fgmkl', 0, NULL),
+(4, 2, 1, 4, 9, 'AC-DC.mp4', '../videos/miniatura/acdc.jpg', 28440, 0, 0, 0, '2017-05-01 00:00:00.000000', '../videos/archivo/AC-DC.mp4', 'dflgmksdÃ±fgmkl', 0, NULL);
+
 -- --------------------------------------------------------
 
 --
@@ -1160,7 +1168,7 @@ ALTER TABLE `tbl_usuarios`
 -- AUTO_INCREMENT de la tabla `tbl_videos`
 --
 ALTER TABLE `tbl_videos`
-  MODIFY `CODIGO_VIDEO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `CODIGO_VIDEO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- Restricciones para tablas volcadas
 --
