@@ -6,20 +6,20 @@
 	    <meta name="viewport" content="width=device-width, initial-scale=1">
 	  
 	    <!-- Load player theme -->
-	    <link rel="stylesheet" href="reproductor/themes/maccaco/projekktor.style.css" type="text/css" media="screen" />
+	    <link rel="stylesheet" href="../reproductor/themes/maccaco/projekktor.style.css" type="text/css" media="screen" />
 
 	    <!-- Load jquery -->
-	    <script type="text/javascript" src="reproductor/jquery-1.9.1.min.js"></script>
+	    <script type="text/javascript" src="../reproductor/jquery-1.9.1.min.js"></script>
 
 	    <!-- load projekktor -->
-	    <script type="text/javascript" src="reproductor/projekktor-1.3.09.min.js"></script>
+	    <script type="text/javascript" src="../reproductor/projekktor-1.3.09.min.js"></script>
 		    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 	    <title>Youtube</title>
 
 	    <!-- Bootstrap -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    <link rel="stylesheet" type="text/css" href="css/css-basica.css">
-	    <link rel="stylesheet" type="text/css" href="css/css-reproducirVideo.css">
+	    <link rel="stylesheet" type="text/css" href="../css/css-basica.css">
+	    <link rel="stylesheet" type="text/css" href="../css/css-reproducirVideo.css">
 	    
 	    
   </head>
@@ -46,11 +46,11 @@
 					      <li><a href="#">Explorar Canales</a></li>
 					      <li class="divider"></li>
 					      <li class="dropdown-header">Inicia sesión para ver tus canales y recomendaciones.</li>
-					      <li><a class="btn btn-primary btn-sm" href="ur-iniciarSesion.php">Iniciar Sesión</a></li>
+					      <li><a class="btn btn-primary btn-sm" href="../ur/iniciarSesion.php">Iniciar Sesión</a></li>
 					    </ul>
 					    </span>
-			          	<a href="uNr-inicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="img/logo-youtube.png"></a>
-			          	<a href="uNr-inicio.php"><img id="logo-sm" class="hidden-md hidden-lg" src="img/logo-reproduccion.png"></a>         
+			          	<a href="inicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="../img/logo-youtube.png"></a>
+			          	<a href="inicio.php"><img id="logo-sm" class="hidden-md hidden-lg" src="../img/logo-reproduccion.png"></a>         
 			        </div>
 			        <div class="col-xs-6 col-sm-7 col-md-7">
 			          	<div class="input-group ">
@@ -65,8 +65,8 @@
 			        <div class="col-xs-0 col-sm-1 col-md-1">       		 	
 			        </div>
 			        <div class="input-group-btn col-xs-2 col-sm-2  col-md-2">
-			            <a class="btn btn-primary hidden-xs"  href="ur-iniciarSesion.php"><span class="glyphicon glyphicon-open"></span></a>
-			           	<a class="btn btn-primary" href="ur-iniciarSesion.php"><span class="glyphicon glyphicon-log-in"></span> <span class="hidden-sm hidden-xs" >Iniciar Sesion </span> </a>
+			            <a class="btn btn-primary hidden-xs"  href="../ur/iniciarSesion.php"><span class="glyphicon glyphicon-open"></span></a>
+			           	<a class="btn btn-primary" href="../ur/iniciarSesion.php"><span class="glyphicon glyphicon-log-in"></span> <span class="hidden-sm hidden-xs" >Iniciar Sesion </span> </a>
 			        </div>
 			    </div>
 		    </div>
@@ -119,7 +119,7 @@
 							for ($i=0; $i < 5; $i++) {
 							echo "
 							<div class='letra-comentario'>
-								<img src='img/icono-usuario2.png' class='col-md-1 img-responsive float-left'> 
+								<img src='../img/icono-usuario2.png' class='col-md-1 img-responsive float-left'> 
 								<span>
 									Usuario fecha
 								</span>
@@ -143,7 +143,7 @@
 	    			<?php
 	    				for ($i=1; $i < 11; $i++) { 			 
 	    				echo "<div class='row'>
-	    					<img src='img/icono1.jpg' class='float-left col-md-6 img-responsive'>
+	    					<img src='../img/icono1.jpg' class='float-left col-md-6 img-responsive'>
 							<span class='descripcion col-md-6'>
 								<span>Nombre de la aplicacion</span>
 								<br>
@@ -162,7 +162,7 @@
  		<div class="barra-inferior">
 			
 			<ul class="HLista">
-	        	<a href="#"><li><img class="logo-youtube" src="img/logo-youtube.png"></li></a>
+	        	<a href="#"><li><img class="logo-youtube" src="../img/logo-youtube.png"></li></a>
 				<hr class="clear">
 	        </ul>  
 			<ul class="HLista2 hidden-xs hidden-sm">
@@ -193,7 +193,7 @@
 						<h3 class="modal-title">Lo sentimos, estamos trabajando en esta Funcionalidad.</h3>
 					</div>
 					<div class="modal-body">
-						<img src="img/icono-enfermo.png" class="img-responsive">
+						<img src="../img/icono-enfermo.png" class="img-responsive">
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -206,7 +206,7 @@
      <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  	<script src="js/js-basica.js" type="text/javascript" ></script>
-  	<script src="js/js-reproducirvideo.js" type="text/javascript"></script>
+  	<script src="../js/js-basica.js" type="text/javascript" ></script>
+  	<script src="../js/js-reproducirvideo.js" type="text/javascript"></script>
   </body>
 </html>
