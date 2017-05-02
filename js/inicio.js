@@ -1,10 +1,10 @@
-generarTargetasVideo = function(){
+generarTargetasUsuario = function(){
 	$.ajax({
-		url: "ajax/inicio.php",//	url: "ajax/acciones.php?accion=1",
+		url: "ajax/inicio.php",
 		method: "POST",
 		success : function(resultado){
-		$("#div-videos").html(resultado);
+		$("#div-video").html(resultado);
 		}
 	});
 }
-generarTargetasVideo();
+generarTargetasUsuario();
