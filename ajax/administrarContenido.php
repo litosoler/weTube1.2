@@ -87,8 +87,25 @@ switch ($_GET["opcion"]) {
 		}else{
 			$respuesta["codigo"]=1;	
 		}
-		echo json_encode($respuesta);
 		break;
+		case 6:
+			$sql = sprintf("UPDATE tbl_canales SET DESCRIPCION='%s' WHERE CODIGO_CANAL='%s';",
+			$conexion->getEnlace()->real_escape_string(stripslashes( $_POST["descripcion"])),
+			$_SESSION["CODIGO_CANAL"]);
+			$consulta = $conexion->ejecutar($sql);
+
+			$respuesta = array();
+
+			if ($consulta === TRUE) {
+			$respuesta["codigo"]=1;
+			$respuesta["mensaje"]="Exito, la descripcion fue actualizada";
+		}else {
+			$respuesta["codigo"]=0;
+			$respuesta["mensaje"]="Error: " . $sql . "<br>" . $conexion->getEnlace()->error;
+		}
+			//$respuesta["sql"]= $sql;//para depurar solamente
+			echo json_encode($respuesta);
+			break;
 	default:
 			# code...
 	break;

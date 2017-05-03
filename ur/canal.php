@@ -14,10 +14,16 @@ if ($_SESSION["CODIGO_CANAL"] ==-1){
 }
 
 //consultas a la base de datos
+	//consulta para rellenar la barra superior
 	$conexion = new Conexion();
 	$sql = "SELECT CORREO_ELECTRONICO, USUARIO FROM tbl_usuarios WHERE CODIGO_USUARIO ='".$_SESSION["codigoUsuario"]."';";
 	$consulta = $conexion->ejecutar($sql);
 	$fila = $conexion->obtenerFila($consulta);
+	//consulta para obtener infomacion del canal
+	$sql = "SELECT NOMBRE_CANAL, DESCRIPCION, CANTIDAD_SUSCRIPTORES, FECHA_CREACION, URL_CANAL FROM tbl_canales WHERE CODIGO_CANAL='".$_SESSION["CODIGO_CANAL"]."';";
+	$consulta_1 = $conexion->ejecutar($sql);
+	$fila_1 = $conexion->obtenerFila($consulta_1);
+	echo "<input type='text' id='original' class='oculto' value='".$fila_1["DESCRIPCION"]."'>";
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -32,8 +38,6 @@ if ($_SESSION["CODIGO_CANAL"] ==-1){
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/css-basica.css">
 	<link rel="stylesheet" type="text/css" href="../css/canal.css">
-
-
 </head>
 <body>
 	<!-- encabezado -->
@@ -111,10 +115,23 @@ if ($_SESSION["CODIGO_CANAL"] ==-1){
 				<div id="perfil">
 					<!-- <img id="img-perfil" src="../img/perfil.jpg" class="img-responsive"> -->
 				</div>
-				<div>
-					<h4>Lito Dadier Soler Rivera</h4>
-					<button>Descripcion del Canal</button>
+				<div id="canal-info">
+
+					<h3><strong>Nombre Canal:</strong> <?php echo $fila_1["NOMBRE_CANAL"];?></h3>
+					<div class="form-group">
+					<label for="txt-descripion">Descricion:</label>
+					<textarea id="txt-descripion" class="form-control" rows="5" disabled="true"><?php echo $fila_1["DESCRIPCION"];  ?></textarea>
+					<br>
+						<div>
+						<button id="editar" class="btn btn-warning">Editar Descricion</button>
+						<button id="guardar" class="btn btn-primary oculto">Guardar</button>
+						<button id="cancelar" class="btn btn-warning oculto">Cancelar</button>
+						</div>
+					</div>
 				</div>
+			</div>
+			<div id="prueba">
+				
 			</div>
 			<div id="canal-suscripciones">
 				<h5>Suscripciones</h5>

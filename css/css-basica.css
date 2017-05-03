@@ -1,3 +1,7 @@
+
+.oculto{
+	display: none;
+}
 #dropdown-menu-usuario{  
 	left: -50px;
 	top: 12PX;
