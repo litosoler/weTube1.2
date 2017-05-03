@@ -1,5 +1,5 @@
 <?php
-	/*determina si hay una sesion iniciada, si no te regresa al inicio de sesion*/
+	// determina si hay una sesion iniciada, si no te regresa al inicio de sesion
 	session_start();
 	if (!array_key_exists("codigoUsuario", $_SESSION)){
 		header("Location: iniciarSesion.php");
@@ -10,7 +10,6 @@
 	if ($_SESSION["CODIGO_CANAL"]!= -1) {
 		header("Location: canal.php");
 	}
-	echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSION["codigoTipoUsuario"]."<br>codigo Canal: ".$_SESSION["CODIGO_CANAL"];
 ?>
 
 <!DOCTYPE html>

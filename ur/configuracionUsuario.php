@@ -1,5 +1,7 @@
 <?php
-/*determina si hay una sesion iniciada, si no te regresa al inicio de sesion*/
+// include once
+	include_once("../class/class-conexion.php");
+// determina si hay una sesion iniciada, si no te regresa al inicio de sesion
 session_start();
 if (!array_key_exists("codigoUsuario", $_SESSION)){
 	header("Location: iniciarSesion.php");
@@ -7,12 +9,16 @@ if (!array_key_exists("codigoUsuario", $_SESSION)){
 if ($_SESSION["codigoTipoUsuario"] != 2){
 	header("Location: iniciarSesion.php");
 }
-include_once("../class/class-conexion.php");
-$conexion = new Conexion();
+
+//consultas a la base de datos
+	$conexion = new Conexion();
+	$sql_1 = "SELECT CORREO_ELECTRONICO, USUARIO FROM tbl_usuarios WHERE CODIGO_USUARIO ='".$_SESSION["codigoUsuario"]."';";
+	$consulta_1 = $conexion->ejecutar($sql_1);
+	$fila_1 = $conexion->obtenerFila($consulta_1);
+
 $sql ="SELECT CODIGO_PAIS, NOMBRE_PAIS, CODIGO_AREA FROM tbl_paises;";
 $consulta = $conexion->ejecutar($sql);
 
-echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSION["codigoTipoUsuario"];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -38,8 +44,8 @@ echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSIO
 				<span class="dropdown">
 					<span id="icono-menu" class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown"></span>
 					<ul class="dropdown-menu">
-						<li><a href="#">Inicio</a></li>
-						<li><a href="#">Mi canal</a></li>
+						<li><a href="inicio.php">Inicio</a></li>
+						<li><a href="verificarCanal.php">Mi canal</a></li>
 						<li><a href="#">Tendencias</a></li>
 						<li><a href="#">Suscripciones</a></li>
 						<li class="divider"></li>
@@ -61,7 +67,7 @@ echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSIO
 			</div>
 			<div class="col-xs-6 col-sm-7 col-md-7">
 				<div class="input-group ">
-					<input type="text" class="form-control " placeholder="Search" >
+					<input type="text" class="form-control" placeholder="Search" >
 					<div class="input-group-btn">
 						<button class="btn btn-primary" type="submit">
 							<i class="glyphicon glyphicon-search"></i>
@@ -74,24 +80,21 @@ echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSIO
 			<div class="input-group-btn col-xs-2 col-sm-2  col-md-2">
 				<span class="dropdown">   
 					<a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
-					<ul class="dropdown-menu">
-						<li>Correo Electronico</li>	
+					<ul id="dropdown-menu-usuario" class="dropdown-menu">
+						<li><a href="ConfiguracionUsuario.php"><span class="glyphicon glyphicon-cog"></span>Configuraciones</a></li>
 						<li class="divider"></li>
-						<a href="ConfiguracionUsuario.php"><span class="glyphicon glyphicon-cog"></span></a>
-						<li>Nombre Usuario</li>
-						<li># Suscriptores</li>
+						<li><a>Correo: <?php echo $fila_1["CORREO_ELECTRONICO"];  ?></a></li>	
+						<li><a>Usuario: <?php echo $fila_1["USUARIO"];  ?></a></li>
 						<li class="divider"></li>
-						<button id="cerrarSesion" class="btn btn-primary form-control " >Cerrar Sesión</button>
+						<li><a id="cerrarSesion" class="btn">Cerrar Sesión</a></li>
 					</ul>
 				</span>
 				<span class="dropdown"> 
 					<a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span></a>
-					<ul class="dropdown-menu">
+					<ul id="dropdown-menu-noti" class="dropdown-menu">
 						<li class="dropdown-header">Notificaciones</li>
 						<li class="divider"></li>
-						<li><a href="#">Notificaion 1</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Notificacion 2</a></li>
+						<li><a href="">Sin notificaiones pendientes</a></li>
 					</ul>
 				</span>
 				<a class="btn btn-primary" href="subirVideo.php"><span class="glyphicon glyphicon-open"></span></a>

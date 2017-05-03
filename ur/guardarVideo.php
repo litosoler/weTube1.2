@@ -1,6 +1,7 @@
 <?php
+//include once
 include_once("../class/class-conexion.php");
-/*determina si hay una sesion iniciada, si no te regresa al inicio de sesion*/
+// determina si hay una sesion iniciada, si no te regresa al inicio de sesion
 session_start();
 if (!array_key_exists("codigoUsuario", $_SESSION)){
 	header("Location: iniciarSesion.php");
@@ -11,15 +12,13 @@ if ($_SESSION["codigoTipoUsuario"] != 2){
 if($_SESSION["CODIGO_CANAL"] == -1){
 	header("Location: verificarCanal.php");
 }
-
-echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSION["codigoTipoUsuario"]."<br>codigo Canal: ".$_SESSION["CODIGO_CANAL"];
-
+//detremina si hay algun error al subir el video.
 if (!$_FILES["video"]) {
 	header("Location: subirVideo.php");
 }
 if ($_FILES['video']["error"] > 0)
 {
-	header("Location: subirVideo.php?error=1");
+	header("Location: subirVideo.php?codigoError=").$_FILES['video']["error"];//mensajes de error: http://php.net/manual/es/features.file-upload.errors.php
 }
 else
 {
@@ -27,20 +26,24 @@ else
 	$tipo_video = $_FILES['video']['type'];
 	$tamaño_video=$_FILES["video"]["size"];
 	$carpeta_temp_video= $_FILES['video']['tmp_name'];
-	$destino_video = "../videos/archivo/".$nombre_video;
+	$destino_video = "../videos/archivo/".$nombre_video;//lugar donde se guardara
 	$nombre_img = $_FILES['img']['name'];
 	$destino_img = "../videos/miniatura/".$nombre_img;
-	$parametros = "tipo_video=".$tipo_video."&tamaño_video=".$tamaño_video."&destino_video=".$destino_video."&nombre_img=".$nombre_img."&destino_img=".$destino_img;
-	echo "<input type='text' id='oculto' hidden='true' value='".$parametros."'>";
-	move_uploaded_file($_FILES["img"]["tmp_name"], $destino_img);
+	$parametros = "tipo_video=".$tipo_video."&tamaño_video=".$tamaño_video."&destino_video=".$destino_video."&nombre_img=".$nombre_img."&destino_img=".$destino_img;//se usas para mandarlos por medio de ajax cuando el usario le de guardar, y asi poder retener esta info en la base
+	echo "<input type='text' id='oculto' hidden='true' value='".$parametros."'>";//se optinen estos parametros desde jquery
+	move_uploaded_file($_FILES["img"]["tmp_name"], $destino_img);//guarda el archivo en la carpeta de destino permanente.
 	move_uploaded_file($_FILES["video"]["tmp_name"], $destino_video);
 }
 
-
-//rellena el campo de idiomas
-$conexion = new Conexion();
-$sql = "SELECT CODIGO_IDIOMA, NOMBRE_IDIOMA, ABREVIATURA FROM tbl_idiomas;";
-$consulta = $conexion->ejecutar($sql);
+//consultas a la base de datos
+	$conexion = new Conexion();
+	//rellena la info de la cabezera
+	$sql_1 = "SELECT CORREO_ELECTRONICO, USUARIO FROM tbl_usuarios WHERE CODIGO_USUARIO ='".$_SESSION["codigoUsuario"]."';";
+	$consulta_1 = $conexion->ejecutar($sql_1);
+	$fila_1 = $conexion->obtenerFila($consulta_1);
+	//rellena el campo de idiomas
+	$sql = "SELECT CODIGO_IDIOMA, NOMBRE_IDIOMA, ABREVIATURA FROM tbl_idiomas;";
+	$consulta = $conexion->ejecutar($sql);
 
 
 ?>
@@ -61,77 +64,73 @@ $consulta = $conexion->ejecutar($sql);
 
 	</head>
 	<body>
-		<!-- encabezado -->
-		<div class="container-fluid barra-superior">
-			<div class="row">
-				<div class=" col-xs-4 col-sm-2 col-md-2">
-					<span class="dropdown">
-						<span id="icono-menu" class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown"></span>
-						<ul class="dropdown-menu">
-							<li><a href="#">Inicio</a></li>
-							<li><a href="verificarCanal.php">Mi canal</a></li>
-							<li><a href="#">Tendencias</a></li>
-							<li><a href="#">Suscripciones</a></li>
-							<li class="divider"></li>
-							<li class="dropdown-header">BIBLIOTECA</li>
-							<li><a href="#">Historial</a></li>
-							<li><a href="#">Ver más tarde</a></li>
-							<li><a href="#">Videos favoritos</a></li>
-							<li class="divider"></li>
-							<li class="dropdown-header">SUSCRIPCIONES</li>
-							<li><a href="#"></a></li>
-							<li><a href="#"></a></li>
-							<li><a href="#"></a></li>
-							<li class="divider"></li>
-							<li><a href="#">Explorar Canales</a></li>
-						</ul>
-					</span>
-					<a href="inicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="../img/logo-youtube.png"></a>
-					<a href="inicio.php"><img id="logo-sm" class="hidden-md hidden-lg" src="../img/logo-reproduccion.png"></a>         
-				</div>
-				<div class="col-xs-6 col-sm-7 col-md-7">
-					<div class="input-group ">
-						<input type="text" class="form-control" placeholder="Search" >
-						<div class="input-group-btn">
-							<button class="btn btn-primary" type="submit">
-								<i class="glyphicon glyphicon-search"></i>
-							</button>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-0 col-sm-1 col-md-1">       		 	
-				</div>
-				<div class="input-group-btn col-xs-2 col-sm-2  col-md-2">
-					<span class="dropdown">   
-						<a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
-						<ul class="dropdown-menu">
-							<li>Correo Electronico</li>	
-							<li class="divider"></li>
-							<a href="ConfiguracionUsuario.php"><span class="glyphicon glyphicon-cog"></span></a>
-							<li>Nombre Usuario</li>
-							<li># Suscriptores</li>
-							<li class="divider"></li>
-							<a class="btn btn-primary form-control" href="../uNr/inicio.php">Cerrar Sesión</a>
-						</ul>
-					</span>
-					<span class="dropdown"> 
-						<a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span></a>
-						<ul class="dropdown-menu">
-							<li class="dropdown-header">Notificaciones</li>
-							<li class="divider"></li>
-							<li><a href="#">Notificaion 1</a></li>
-							<li class="divider"></li>
-							<li><a href="#">Notificacion 2</a></li>
-						</ul>
-					</span>
-					<a class="btn btn-primary" href="subirVideo.php"><span class="glyphicon glyphicon-open"></span></a>
+	<!-- encabezado -->
+  	<div class="container-fluid barra-superior">
+  		<div class="row">
+  			<div class=" col-xs-4 col-sm-2 col-md-2">
+  				<span class="dropdown">
+  					<span id="icono-menu" class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown"></span>
+  					<ul class="dropdown-menu">
+  						<li><a href="inicio.php">Inicio</a></li>
+  						<li><a href="verificarCanal.php">Mi canal</a></li>
+  						<li><a href="#">Tendencias</a></li>
+  						<li><a href="#">Suscripciones</a></li>
+  						<li class="divider"></li>
+  						<li class="dropdown-header">BIBLIOTECA</li>
+  						<li><a href="#">Historial</a></li>
+  						<li><a href="#">Ver más tarde</a></li>
+  						<li><a href="#">Videos favoritos</a></li>
+  						<li class="divider"></li>
+  						<li class="dropdown-header">SUSCRIPCIONES</li>
+  						<li><a href="#"></a></li>
+  						<li><a href="#"></a></li>
+  						<li><a href="#"></a></li>
+  						<li class="divider"></li>
+  						<li><a href="#">Explorar Canales</a></li>
+  					</ul>
+  				</span>
+  				<a href="inicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="../img/logo-youtube.png"></a>
+  				<a href="inicio.php"><img id="logo-sm" class="hidden-md hidden-lg" src="../img/logo-reproduccion.png"></a>         
+  			</div>
+  			<div class="col-xs-6 col-sm-7 col-md-7">
+  				<div class="input-group ">
+  					<input type="text" class="form-control" placeholder="Search" >
+  					<div class="input-group-btn">
+  						<button class="btn btn-primary" type="submit">
+  							<i class="glyphicon glyphicon-search"></i>
+  						</button>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="col-xs-0 col-sm-1 col-md-1">       		 	
+  			</div>
+  			<div class="input-group-btn col-xs-2 col-sm-2  col-md-2">
+  				<span class="dropdown">   
+  					<a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
+  					<ul id="dropdown-menu-usuario" class="dropdown-menu">
+  						<li><a href="ConfiguracionUsuario.php"><span class="glyphicon glyphicon-cog"></span>Configuraciones</a></li>
+  						<li class="divider"></li>
+  						<li><a>Correo: <?php echo $fila_1["CORREO_ELECTRONICO"];  ?></a></li>	
+  						<li><a>Usuario: <?php echo $fila_1["USUARIO"];  ?></a></li>
+  						<li class="divider"></li>
+  						<li><a id="cerrarSesion" class="btn">Cerrar Sesión</a></li>
+  					</ul>
+  				</span>
+  				<span class="dropdown"> 
+  					<a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span></a>
+  					<ul id="dropdown-menu-noti" class="dropdown-menu">
+  						<li class="dropdown-header">Notificaciones</li>
+  						<li class="divider"></li>
+  						<li><a href="">Sin notificaiones pendientes</a></li>
+  					</ul>
+  				</span>
+  				<a class="btn btn-primary" href="subirVideo.php"><span class="glyphicon glyphicon-open"></span></a>
 
-				</div>
-			</div>
-		</div>
-		<div class="barra2">
-		</div>	
-	</div>
+  			</div>
+  		</div>
+  	</div>
+  	<div class="barra2">
+  	</div>	
 	<!-- cuerpo -->
 	<div class="container cuerpo">
 		<div class="row">

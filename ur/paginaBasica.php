@@ -1,7 +1,7 @@
 <?php
-	/*determina si hay una sesion iniciada, si no te regresa al inicio de sesion*/
+	// include once
 	include_once("../class/class-conexion.php");
-
+	// determina si hay una sesion iniciada, si no te regresa al inicio de sesion
 	session_start();
 	if (!array_key_exists("codigoUsuario", $_SESSION)){
 		header("Location: iniciarSesion.php");
@@ -9,10 +9,10 @@
 	if ($_SESSION["codigoTipoUsuario"] != 2){
 		header("Location: iniciarSesion.php");
 	}
-	echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSION["codigoTipoUsuario"]."<br>codigo Canal: ".$_SESSION["CODIGO_CANAL"];
 
 
-	//consultas a la base de datos
+//consultas a la base de datos
+	//rellena la info de la cabezera
 	$conexion = new Conexion();
 	$sql = "SELECT CORREO_ELECTRONICO, USUARIO FROM tbl_usuarios WHERE CODIGO_USUARIO ='".$_SESSION["codigoUsuario"]."';";
 	$consulta = $conexion->ejecutar($sql);
@@ -29,81 +29,76 @@
 
 	    <!-- Bootstrap -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    <link rel="stylesheet" type="text/css" href="../css/css-basica.css">
-	    
-	    
+	    <link rel="stylesheet" type="text/css" href="../css/css-basica.css">	    
   </head>
   <body>
-    	<!-- encabezado -->
-		    <div class="container-fluid barra-superior">
-			    <div class="row">
-			        <div class=" col-xs-4 col-sm-2 col-md-2">
-				        <span class="dropdown">
-		    			<span id="icono-menu" class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown"></span>
-		    			<ul class="dropdown-menu">
-					      <li><a href="#">Inicio</a></li>
-					      <li><a href="verificarCanal.php">Mi canal</a></li>
-					      <li><a href="#">Tendencias</a></li>
-					      <li><a href="#">Suscripciones</a></li>
-					      <li class="divider"></li>
-					      <li class="dropdown-header">BIBLIOTECA</li>
-					      <li><a href="#">Historial</a></li>
-					      <li><a href="#">Ver más tarde</a></li>
-					      <li><a href="#">Videos favoritos</a></li>
-					      <li class="divider"></li>
-					      <li class="dropdown-header">SUSCRIPCIONES</li>
-					      <li><a href="#"></a></li>
-					      <li><a href="#"></a></li>
-					      <li><a href="#"></a></li>
-					      <li class="divider"></li>
-					      <li><a href="#">Explorar Canales</a></li>
-					    </ul>
-					    </span>
-			          	<a href="inicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="../img/logo-youtube.png"></a>
-			          	<a href="inicio.php"><img id="logo-sm" class="hidden-md hidden-lg" src="../img/logo-reproduccion.png"></a>         
-			        </div>
-			        <div class="col-xs-6 col-sm-7 col-md-7">
-			          	<div class="input-group ">
-				            <input type="text" class="form-control" placeholder="Search" >
-				            <div class="input-group-btn">
-				              <button class="btn btn-primary" type="submit">
-				                <i class="glyphicon glyphicon-search"></i>
-				              </button>
-			            	</div>
-			          	</div>
-			        </div>
-			        <div class="col-xs-0 col-sm-1 col-md-1">       		 	
-			        </div>
-			        <div class="input-group-btn col-xs-2 col-sm-2  col-md-2">
-			        	<span class="dropdown">   
-			        		<a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
-			        		<ul id="dropdown-menu-usuario" class="dropdown-menu">
-						       <li><a href="ConfiguracionUsuario.php"><span class="glyphicon glyphicon-cog"></span>Configuraciones</a></li>
-						       <li class="divider"></li>
-						       <li><a>Correo: <?php echo $fila["CORREO_ELECTRONICO"];  ?></a></li>	
-						       <li><a>Usuario: <?php echo $fila["USUARIO"];  ?></a></li>
-						       <li class="divider"></li>
-						       <li><a id="cerrarSesion" class="btn">Cerrar Sesión</a></li>
-						    </ul>
-						</span>
-						<span class="dropdown"> 
-				            <a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span></a>
-				            <ul id="dropdown-menu-noti" class="dropdown-menu">
-						      <li class="dropdown-header">Notificaciones</li>
-						       <li class="divider"></li>
-						      <li><a href="#">Notificaion 1</a></li>
-						       <li class="divider"></li>
-						      <li><a href="#">Notificacion 2</a></li>
-						    </ul>
-						</span>
-					        <a class="btn btn-primary" href="subirVideo.php"><span class="glyphicon glyphicon-open"></span></a>
+  	<!-- encabezado -->
+  	<div class="container-fluid barra-superior">
+  		<div class="row">
+  			<div class=" col-xs-4 col-sm-2 col-md-2">
+  				<span class="dropdown">
+  					<span id="icono-menu" class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown"></span>
+  					<ul class="dropdown-menu">
+  						<li><a href="inicio.php">Inicio</a></li>
+  						<li><a href="verificarCanal.php">Mi canal</a></li>
+  						<li><a href="#">Tendencias</a></li>
+  						<li><a href="#">Suscripciones</a></li>
+  						<li class="divider"></li>
+  						<li class="dropdown-header">BIBLIOTECA</li>
+  						<li><a href="#">Historial</a></li>
+  						<li><a href="#">Ver más tarde</a></li>
+  						<li><a href="#">Videos favoritos</a></li>
+  						<li class="divider"></li>
+  						<li class="dropdown-header">SUSCRIPCIONES</li>
+  						<li><a href="#"></a></li>
+  						<li><a href="#"></a></li>
+  						<li><a href="#"></a></li>
+  						<li class="divider"></li>
+  						<li><a href="#">Explorar Canales</a></li>
+  					</ul>
+  				</span>
+  				<a href="inicio.php"><img class="hidden-sm hidden-xs logo-youtube " src="../img/logo-youtube.png"></a>
+  				<a href="inicio.php"><img id="logo-sm" class="hidden-md hidden-lg" src="../img/logo-reproduccion.png"></a>         
+  			</div>
+  			<div class="col-xs-6 col-sm-7 col-md-7">
+  				<div class="input-group ">
+  					<input type="text" class="form-control" placeholder="Search" >
+  					<div class="input-group-btn">
+  						<button class="btn btn-primary" type="submit">
+  							<i class="glyphicon glyphicon-search"></i>
+  						</button>
+  					</div>
+  				</div>
+  			</div>
+  			<div class="col-xs-0 col-sm-1 col-md-1">       		 	
+  			</div>
+  			<div class="input-group-btn col-xs-2 col-sm-2  col-md-2">
+  				<span class="dropdown">   
+  					<a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
+  					<ul id="dropdown-menu-usuario" class="dropdown-menu">
+  						<li><a href="ConfiguracionUsuario.php"><span class="glyphicon glyphicon-cog"></span>Configuraciones</a></li>
+  						<li class="divider"></li>
+  						<li><a>Correo: <?php echo $fila["CORREO_ELECTRONICO"];  ?></a></li>	
+  						<li><a>Usuario: <?php echo $fila["USUARIO"];  ?></a></li>
+  						<li class="divider"></li>
+  						<li><a id="cerrarSesion" class="btn">Cerrar Sesión</a></li>
+  					</ul>
+  				</span>
+  				<span class="dropdown"> 
+  					<a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span></a>
+  					<ul id="dropdown-menu-noti" class="dropdown-menu">
+  						<li class="dropdown-header">Notificaciones</li>
+  						<li class="divider"></li>
+  						<li><a href="">Sin notificaiones pendientes</a></li>
+  					</ul>
+  				</span>
+  				<a class="btn btn-primary" href="subirVideo.php"><span class="glyphicon glyphicon-open"></span></a>
 
-			        </div>
-			    </div>
-		    </div>
-	    	<div class="barra2">
-	    	</div>	
-	    </div>
+  			</div>
+  		</div>
+  	</div>
+  	<div class="barra2">
+  	</div>	
 	    <!-- cuerpo -->
     	<div class="container cuerpo">
     		<div class="row">

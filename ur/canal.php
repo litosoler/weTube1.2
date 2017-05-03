@@ -1,5 +1,7 @@
 <?php
-/*determina si hay una sesion iniciada, si no te regresa al inicio de sesion*/
+//include_once
+include_once("../class/class-conexion.php");
+// determina si hay una sesion iniciada, si no te regresa al inicio de sesion
 session_start();
 if (!array_key_exists("codigoUsuario", $_SESSION)){
 	header("Location: iniciarSesion.php");
@@ -10,7 +12,12 @@ if ($_SESSION["codigoTipoUsuario"] != 2){
 if ($_SESSION["CODIGO_CANAL"] ==-1){
 	header("Location: verificarCanal.php");
 }
-echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSION["codigoTipoUsuario"]."<br>codigo Canal: ".$_SESSION["CODIGO_CANAL"];
+
+//consultas a la base de datos
+	$conexion = new Conexion();
+	$sql = "SELECT CORREO_ELECTRONICO, USUARIO FROM tbl_usuarios WHERE CODIGO_USUARIO ='".$_SESSION["codigoUsuario"]."';";
+	$consulta = $conexion->ejecutar($sql);
+	$fila = $conexion->obtenerFila($consulta);
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -36,8 +43,8 @@ echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSIO
 				<span class="dropdown">
 					<span id="icono-menu" class="glyphicon glyphicon-menu-hamburger dropdown-toggle" data-toggle="dropdown"></span>
 					<ul class="dropdown-menu">
-						<li><a href="#">Inicio</a></li>
-						<li><a href="canal.php">Mi canal</a></li>
+						<li><a href="inicio.php">Inicio</a></li>
+						<li><a href="verificarCanal.php">Mi canal</a></li>
 						<li><a href="#">Tendencias</a></li>
 						<li><a href="#">Suscripciones</a></li>
 						<li class="divider"></li>
@@ -72,24 +79,21 @@ echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSIO
 			<div class="input-group-btn col-xs-2 col-sm-2  col-md-2">
 				<span class="dropdown">   
 					<a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span></a>
-					<ul class="dropdown-menu">
-						<li>Correo Electronico</li>	
+					<ul id="dropdown-menu-usuario" class="dropdown-menu">
+						<li><a href="ConfiguracionUsuario.php"><span class="glyphicon glyphicon-cog"></span>Configuraciones</a></li>
 						<li class="divider"></li>
-						<a href="ConfiguracionUsuario.php"><span class="glyphicon glyphicon-cog"></span></a>
-						<li>Nombre Usuario</li>
-						<li># Suscriptores</li>
+						<li><a>Correo: <?php echo $fila["CORREO_ELECTRONICO"];  ?></a></li>	
+						<li><a>Usuario: <?php echo $fila["USUARIO"];  ?></a></li>
 						<li class="divider"></li>
-						<a class="btn btn-primary form-control" href="../uNr/inicio.php">Cerrar Sesión</a>
+						<li><a id="cerrarSesion" class="btn">Cerrar Sesión</a></li>
 					</ul>
 				</span>
 				<span class="dropdown"> 
 					<a class="btn btn-primary" data-toggle="dropdown"><span class="glyphicon glyphicon-bell"></span></a>
-					<ul class="dropdown-menu">
+					<ul id="dropdown-menu-noti" class="dropdown-menu">
 						<li class="dropdown-header">Notificaciones</li>
 						<li class="divider"></li>
-						<li><a href="#">Notificaion 1</a></li>
-						<li class="divider"></li>
-						<li><a href="#">Notificacion 2</a></li>
+						<li><a href="">Sin notificaiones pendientes</a></li>
 					</ul>
 				</span>
 				<a class="btn btn-primary" href="subirVideo.php"><span class="glyphicon glyphicon-open"></span></a>
@@ -99,7 +103,6 @@ echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSIO
 	</div>
 	<div class="barra2">
 	</div>	
-</div>
 <!-- cuerpo -->
 <div class="container cuerpo">
 	<div class="row">
@@ -161,6 +164,7 @@ echo "codigo usuario: ".$_SESSION["codigoUsuario"]."<br>tipo usuario: ".$_SESSIO
 		<li>© 2017 YouTube, LLC </li>   
 	</ul>
 </div>
+
 <!-- ventana modal -->
 <div id="myModal" class="modal fade" role="dialog">
 	<div class="modal-dialog">
