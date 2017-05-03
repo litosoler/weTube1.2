@@ -74,6 +74,7 @@ switch ($_GET["opcion"]) {
 		echo json_encode($resultado);
 		break;
 	case 5:
+	//recupera informacion para rellenar los divs de verificarCanal.php
 		$sql = "SELECT CODIGO_PAIS, CODIGO_TIPO_USUARIO, CODIGO_ESTADO_USUARIO, NOMBRE, APELLIDO, CORREO_ELECTRONICO, PASSWORD, FOTOGRAFIA, USUARIO, SEXO, FECHA_NACIMIENTO, FECHA_REGISTRO, TELEFONO FROM tbl_usuarios WHERE CODIGO_USUARIO=".$_SESSION["codigoUsuario"].";";
 		$consulta = $conexion->ejecutar($sql);
 		$fila= $conexion->obtenerFila($consulta);
@@ -87,6 +88,7 @@ switch ($_GET["opcion"]) {
 		}else{
 			$respuesta["codigo"]=1;	
 		}
+		echo json_encode($respuesta);
 		break;
 		case 6:
 			$sql = sprintf("UPDATE tbl_canales SET DESCRIPCION='%s' WHERE CODIGO_CANAL='%s';",

@@ -9,13 +9,21 @@
 	if ($_SESSION["codigoTipoUsuario"] != 2){
 		header("Location: iniciarSesion.php");
 	}
-	
-//consultas a la base de datos
-	//rellena la info de la cabezera
+  //consultas a la base de datos
 	$conexion = new Conexion();
+  //rellena la info de la cabezera
 	$sql = "SELECT CORREO_ELECTRONICO, USUARIO FROM tbl_usuarios WHERE CODIGO_USUARIO ='".$_SESSION["codigoUsuario"]."';";
 	$consulta = $conexion->ejecutar($sql);
 	$fila = $conexion->obtenerFila($consulta);
+  //obtiene una lista de los canales disponibles
+  $sql="SELECT CODIGO_CANAL, NOMBRE_CANAL FROM tbl_canales;";
+  $consulta = $conexion->ejecutar($sql);
+  $listaCanales = array();
+  $nombreCanales = array();
+  while ($fila_2 = $conexion->obtenerFila($consulta)) {
+    $listaCanales[] = $fila_2["CODIGO_CANAL"];
+    $nombreCanales[]= $fila_2["NOMBRE_CANAL"]; 
+  }
 ?>
 
 <!DOCTYPE html>
@@ -29,9 +37,8 @@
 
 	    <!-- Bootstrap -->
 	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	    <link rel="stylesheet" type="text/css" href="../css/css-basica.css">
-	    
-	    
+      <link rel="stylesheet" type="text/css" href="../css/css-basica.css">   
+	    <link rel="stylesheet" type="text/css" href="../css/css-inicio.css">   
   </head>
   <body>
     	<!-- encabezado -->
@@ -103,11 +110,37 @@
   	</div>	
 	    <!-- cuerpo -->
     	<div class="container ">
-    		<div class="row">
-    			<div id="div-video">
-    				
-    			</div>
-    		</div>
+      		<?php
+          for ($i=0; $i < sizeof($listaCanales) ; $i++) { 
+                    $sql = "SELECT CODIGO_VIDEO, a.CODIGO_CANAL, NOMBRE_VIDEO, URL_IMG, DURACION_SEGUNDOS, CANTIDAD_VISUALIZACIONES, FECHA_SUBIDA, RUTA_VIDEO, URL, NOMBRE_CANAL
+            FROM tbl_videos a
+            INNER JOIN tbl_canales b 
+            ON(a.CODIGO_CANAL = b.CODIGO_CANAL)
+            WHERE a.CODIGO_CANAL=".$listaCanales[$i].";";
+           // echo $sql."<br>";
+            $consulta= $conexion->ejecutar($sql);
+        echo "<div class='row'>";
+          echo "<div class='col-md-12 segmentos'>";
+        echo "<h3>".$nombreCanales[$i]."</h3>";
+        echo "<div>";
+            while($fila_1= $conexion->obtenerFila($consulta)) {
+              $fecha = explode(" ", $fila_1["FECHA_SUBIDA"]);  
+                echo "<div class='col-md-2'>";
+                echo "<div class='thumbnail'>";
+                echo "<a href='reproducirVideo.php?video=".$fila_1["CODIGO_VIDEO"]."'><img src ='".$fila_1["URL_IMG"]."' class='img-responsive'>";
+                echo "<p class='nombre-video'>".$fila_1["NOMBRE_VIDEO"]."</p></a>";
+                echo "<p class='video-pieInfo'>".$fila_1["NOMBRE_CANAL"]."</p>";
+                echo "<p class='video-pieInfo'>".$fila_1["CANTIDAD_VISUALIZACIONES"]."|".$fecha[0];
+                echo "</div></div>";
+              }
+            echo "</div>";
+          echo "</div>";
+        
+        echo "</div>"; /*fin row*/
+        echo "<hr>";
+       }//fin for
+
+      ?>
     	</div>
 	
  		<!-- pie de pagina -->

@@ -43,6 +43,7 @@ switch ($_GET["opcion"]) {
 				}
 			echo json_encode($resultado);
 	break;
+	//Elimina un video de la carpeta contenedora en el proyecto
 	case 2:
 		$resultado= array();
 		unlink($_POST["destino_video"]);
@@ -50,6 +51,14 @@ switch ($_GET["opcion"]) {
 		$resultado["codigo"]= 1;
 		echo json_encode($resultado);
 	break;
+	//regresa la url del video a reproducir
+	case 3:
+		$sql="SELECT URL_IMG ,RUTA_VIDEO FROM tbl_videos WHERE CODIGO_VIDEO=".$_POST["codigo"].";";
+		$consulta = $conexion->ejecutar($sql);
+		$fila = $conexion->obtenerFila($consulta);
+		echo json_encode($fila);
+		// echo $sql;
+		break;
 	default:
 		# code...
 		break;

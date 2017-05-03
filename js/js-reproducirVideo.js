@@ -1,21 +1,42 @@
 $(document).ready(function() {
-	projekktor('#player_a', {
-		poster: 'reproductor/media/intro.png',
-		width: 750,
-		height: 400,
-		playlist: [
-		{
-			0: {src: "reproductor/media/1.mp4", type: "video/mp4"}
+	parametro = "codigo="+$("#info").val();
+	$.ajax({
+		url: "../ajax/administrarVideos.php?opcion=3",
+		method: "POST",
+		data: parametro,
+		dataType:"json",
+		success: function(respuesta){
+			projekktor('#player_a', {
+				poster: respuesta.URL_IMG , 
+				width: 750,
+				height: 400,
+				playlist: [
+				{
+					0: {src: respuesta.RUTA_VIDEO, type: "video/mp4"}
+				}
+				]    
+    			}, function(player) {} // on ready 
+   				 );
+			//$("#prueba").html(respuesta.RUTA_VIDEO);
 		},
-        //0: {src: "media/2.mp4", type: "video/mp4"}
-        {
-        	1: {src: 'reproductor/media/2.mp4', escriba: 'video/mp4'}
-        },
-        {
-        	2: {src: "reproductor/media/3.mp4", type: "video/mp4"}
-        },
-
-        ]    
-    }, function(player) {} // on ready 
-    );
+		error: function (jqXHR, exception) {
+			var msg = '';
+			if (jqXHR.status === 0) {
+				msg = 'Not connect.\n Verify Network.';
+			} else if (jqXHR.status == 404) {
+				msg = 'Requested page not found. [404]';
+			} else if (jqXHR.status == 500) {
+				msg = 'Internal Server Error [500].';
+			} else if (exception === 'parsererror') {
+				msg = 'Requested JSON parse failed.';
+			} else if (exception === 'timeout') {
+				msg = 'Time out error.';
+			} else if (exception === 'abort') {
+				msg = 'Ajax request aborted.';
+			} else {
+				msg = 'Uncaught Error.\n' + jqXHR.responseText;
+			}
+			alert(msg);
+		}
+	});
 });

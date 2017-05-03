@@ -1,8 +1,8 @@
 <?php 
-include_once("../class/class_conexion.php");
+include_once("../class/class-conexion.php");
 
 	$conexion = new Conexion();
-	$mostrarVideo = $conexion->ejecutarInstruccion(
+	$mostrarVideo = $conexion->ejecutar(
 			 	'SELECT CODIGO_VIDEO, NOMBRE_VIDEO, URL_IMG, CANTIDAD_VISUALIZACIONES
 				FROM tbl_videos;'
 				);

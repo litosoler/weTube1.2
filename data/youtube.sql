@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 01-05-2017 a las 23:49:52
+-- Tiempo de generación: 03-05-2017 a las 22:32:25
 -- Versión del servidor: 5.7.14
 -- Versión de PHP: 5.6.25
 
@@ -53,7 +53,10 @@ CREATE TABLE `tbl_canales` (
 --
 
 INSERT INTO `tbl_canales` (`CODIGO_CANAL`, `CODIGO_USUARIO`, `NOMBRE_CANAL`, `DESCRIPCION`, `CANTIDAD_SUSCRIPTORES`, `FECHA_CREACION`, `URL_CANAL`) VALUES
-(9, 2, 'Lito.Soler', NULL, 0, '2017-05-01 00:00:00', 'weTube1.2/ur/verificarCanal.php/Lito.Soler');
+(9, 2, 'Lito.Soler', 'Esta es una descripciÃ³n de prueba insertada directamente en la base de datos, ya que este campo se crea con valor predeterminado null cuando creamos un canal.\n\nEsta segunda linea de la descripciÃ³n ha sido actualizada desde canal.php', 0, '2017-05-01 00:00:00', 'weTube1.2/ur/verificarCanal.php/Lito.Soler'),
+(10, 4, 'Emilsson.Soler', 'Ya ahora se ha creado un canal correctamente, y puedo modificar la descripcion desde el editor en canal.php.', 0, '2017-05-03 00:00:00', 'weTube1.2/ur/verificarCanal.php/Emilsson.Soler'),
+(11, 6, 'Cathy.Chan', NULL, 0, '2017-05-03 00:00:00', 'weTube1.2/ur/verificarCanal.php/Cathy.Chan'),
+(12, 7, 'Nelson.Mandela', 'estos son canales de prueba', 0, '2017-05-03 00:00:00', 'weTube1.2/ur/verificarCanal.php/Nelson.Mandela');
 
 -- --------------------------------------------------------
 
@@ -774,7 +777,9 @@ INSERT INTO `tbl_usuarios` (`CODIGO_USUARIO`, `CODIGO_LUGAR`, `CODIGO_PAIS`, `CO
 (2, NULL, 'HN', 2, 1, 'Lito', 'Soler', 'lito.soler1@gmail.com', 'zxcv', NULL, 'Lito.Soler', 'hombre', '1992-12-29 00:00:00.000000', '2017-04-25 00:00:00.000000', '89338805'),
 (3, NULL, 'HN', 2, 1, 'Emilsson', 'Soler', 'emilsson.soler@gmail.com', '1324', NULL, 'Emilsson.Soler', 'hombre', '1992-12-29 00:00:00.000000', '2017-04-25 00:00:00.000000', '88552211'),
 (4, NULL, 'HN', 2, 1, 'Emilsson', 'Soler', 'edennirs@gmail.com', '1234', NULL, 'Emilsson.Soler', 'hombre', '0199-04-17 00:00:00.000000', '2017-04-26 00:00:00.000000', '97100418'),
-(5, NULL, 'HN', 3, 1, 'Administrador', 'WeTube', 'admin@wetube.com', 'asd.456', NULL, 'admin', 'otro', '2017-04-26 00:00:00.000000', '2017-04-26 00:00:00.000000', '89338805');
+(5, NULL, 'HN', 3, 1, 'Administrador', 'WeTube', 'admin@wetube.com', 'asd.456', NULL, 'admin', 'otro', '2017-04-26 00:00:00.000000', '2017-04-26 00:00:00.000000', '89338805'),
+(6, NULL, 'HK', 2, 1, 'Cathy', 'Chan', 'cathy@gmail.com', '1234', NULL, 'Cathy.Chan', 'mujer', '1995-04-12 00:00:00.000000', '2017-05-03 00:00:00.000000', '33225566'),
+(7, NULL, 'AU', 2, 1, 'Nelson', 'Mandela', 'nelson@gmail.com', '1234', NULL, 'Nelson.Mandela', 'hombre', '1980-08-29 00:00:00.000000', '2017-05-03 00:00:00.000000', '2255997');
 
 -- --------------------------------------------------------
 
@@ -830,8 +835,15 @@ CREATE TABLE `tbl_videos` (
 --
 
 INSERT INTO `tbl_videos` (`CODIGO_VIDEO`, `CODIGO_USUARIO`, `CODIGO_ESTADO_VIDEO`, `CODIGO_IDIOMA`, `CODIGO_CANAL`, `NOMBRE_VIDEO`, `URL_IMG`, `DURACION_SEGUNDOS`, `CANTIDAD_LIKES`, `CANTIDAD_DISLIKES`, `CANTIDAD_VISUALIZACIONES`, `FECHA_SUBIDA`, `RUTA_VIDEO`, `DESCRIPCION`, `CANTIDAD_SHARES`, `URL`) VALUES
-(3, 2, 1, 4, 9, 'AC-DC.mp4', '../videos/miniatura/acdc.jpg', 28440, 0, 0, 0, '2017-05-01 00:00:00.000000', '../videos/archivo/AC-DC.mp4', 'dflgmksdÃ±fgmkl', 0, NULL),
-(4, 2, 1, 4, 9, 'AC-DC.mp4', '../videos/miniatura/acdc.jpg', 28440, 0, 0, 0, '2017-05-01 00:00:00.000000', '../videos/archivo/AC-DC.mp4', 'dflgmksdÃ±fgmkl', 0, NULL);
+(5, 2, 1, 4, 9, 'AC-DC.mp4', '../videos/miniatura/acdc.jpg', 180, 5, 6, 0, '2017-05-03 00:00:00.000000', '../videos/archivo/AC-DC.mp4', 'Musica', 0, NULL),
+(7, 2, 1, 4, 9, 'Auto rojo.mp4', '../videos/miniatura/Vilma palma.jpg', 180, 1, 0, 0, '2017-05-03 00:00:00.000000', '../videos/archivo/Auto rojo.mp4', 'musica de mana', 0, NULL),
+(9, 2, 1, 4, 9, 'BOB MARLEY- THIS LOVE', '../videos/miniatura/bob marley.jpg', 240, 0, 0, 0, '2017-05-03 00:00:00.000000', '../videos/archivo/BOB MARLEY- THIS LOVE.mp4', 'bob marley el mejor reggue', 0, NULL),
+(11, 4, 1, 4, 10, 'BUNBURY - MAS ALTO QUE NOSOTROS.mp4', '../videos/miniatura/Bunbury.jpg', 120, 0, 0, 0, '2017-05-03 00:00:00.000000', '../videos/archivo/BUNBURY - MAS ALTO QUE NOSOTROS.mp4', 'una super cancion', 0, NULL),
+(13, 4, 1, 4, 10, 'calle13.mp4', '../videos/miniatura/calle13.jpg', 180, 0, 0, 0, '2017-05-03 00:00:00.000000', '../videos/archivo/calle13.mp4', 'No se que decir. XD', 0, NULL),
+(15, 6, 1, 4, 11, 'Could you be loved..mp4', '../videos/miniatura/bob marley- this love.jpg', 120, 0, 0, 0, '2017-05-03 00:00:00.000000', '../videos/archivo/Could you be loved..mp4', 'muy buen video', 0, NULL),
+(17, 6, 1, 4, 11, 'Para no verte mas.mp4', '../videos/miniatura/La rubia del avion.jpg', 120, 0, 0, 0, '2017-05-03 00:00:00.000000', '../videos/archivo/Para no verte mas.mp4', 'XD', 0, NULL),
+(19, 7, 1, 4, 12, 'Todos tenemos un amor.mp4', '../videos/miniatura/Vilma palma.jpg', 120, 0, 0, 0, '2017-05-03 00:00:00.000000', '../videos/archivo/Todos tenemos un amor.mp4', 'ni los mas duros se salvan', 0, NULL),
+(21, 7, 1, 4, 12, 'Una rubia en el avion.mp4', '../videos/miniatura/La rubia del avion.jpg', 120, 0, 0, 0, '2017-05-03 00:00:00.000000', '../videos/archivo/Una rubia en el avion.mp4', 'que suertudo', 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -1133,7 +1145,7 @@ ALTER TABLE `tbl_videos_x_lista`
 -- AUTO_INCREMENT de la tabla `tbl_canales`
 --
 ALTER TABLE `tbl_canales`
-  MODIFY `CODIGO_CANAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `CODIGO_CANAL` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `tbl_estados_usuarios`
 --
@@ -1163,12 +1175,12 @@ ALTER TABLE `tbl_tipos_usuarios`
 -- AUTO_INCREMENT de la tabla `tbl_usuarios`
 --
 ALTER TABLE `tbl_usuarios`
-  MODIFY `CODIGO_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `CODIGO_USUARIO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `tbl_videos`
 --
 ALTER TABLE `tbl_videos`
-  MODIFY `CODIGO_VIDEO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `CODIGO_VIDEO` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- Restricciones para tablas volcadas
 --
